@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Client for QRB project",
   "main": "index.js",
+  "scripts": {
+    "serve": "node index.js"
+  },
   "keywords": [
     "qrb"
   ],
@@ -10,5 +13,9 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "^9.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.3"
   }
 }
