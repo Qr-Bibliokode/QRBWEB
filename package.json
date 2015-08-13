@@ -1,0 +1,14 @@
+{
+  "name": "qrbweb",
+  "version": "0.0.1",
+  "description": "Client for QRB project",
+  "main": "index.js",
+  "keywords": [
+    "qrb"
+  ],
+  "author": "Ferran Gonzalez Alonso",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^9.0.1"
+  }
+}
