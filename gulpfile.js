@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 
 gulp.task('serve', function () {
     nodemon({
-        script: 'index.js',
+        script: 'src/server/index.js',
         ext: 'js html',
         env: {'NODE_ENV': 'development'}
     })

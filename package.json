@@ -4,7 +4,7 @@
   "description": "Client for QRB project",
   "main": "index.js",
   "scripts": {
-    "serve": "node index.js"
+    "serve": "node src/server/index.js"
   },
   "keywords": [
     "qrb"
@@ -12,9 +12,11 @@
   "author": "Ferran Gonzalez Alonso",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^9.0.1"
+    "hapi": "^9.0.1",
+    "inert": "^3.0.1"
   },
   "devDependencies": {
+    "bower": "^1.4.1",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.3"
   }
