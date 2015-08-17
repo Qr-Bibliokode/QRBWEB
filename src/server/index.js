@@ -1,13 +1,13 @@
-var Hapi = require('hapi');
-var Server = new Hapi.Server();
-var Inert = require('inert');
+var hapi = require('hapi');
+var server = new hapi.Server();
+var intert = require('inert');
 
-Server.connection({port: 3000});
+server.connection({port: 3000});
 
-Server.register(Inert, function () {
+server.register(intert, function () {
 });
 
-Server.route({
+server.route({
     method: 'GET',
     path: '/{param*}',
     handler: {
@@ -19,17 +19,36 @@ Server.route({
     }
 });
 
-Server.route({
+server.route({
     method: 'GET',
-    path: '/bower_components/{params*}',
+    path: '/author/{params*}',
     handler: {
         directory: {
-            path: 'bower_components/',
-            listing: true
+            path: 'src/client/main/app/components/author/list/author.list.html'
         }
     }
 });
 
-Server.start(function () {
-    console.log('Running server at ', Server.info.uri);
+server.route({
+    method: 'GET',
+    path: '/bower_components/{params*}',
+    handler: {
+        directory: {
+            path: 'bower_components/'
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/app/{params*}',
+    handler: {
+        directory: {
+            path: 'src/client/main/app/'
+        }
+    }
+});
+
+server.start(function () {
+    console.log('Running server at ', server.info.uri);
 });
