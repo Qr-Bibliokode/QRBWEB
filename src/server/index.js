@@ -1,6 +1,7 @@
 var hapi = require('hapi');
 var server = new hapi.Server();
 var intert = require('inert');
+var client = require('swagger-client');
 
 server.connection({port: 3000});
 
@@ -51,4 +52,15 @@ server.route({
 
 server.start(function () {
     console.log('Running server at ', server.info.uri);
+});
+
+var ws = new client({
+    url: 'http://localhost:8080/swagger.json',
+    success: function () {
+        ws.author.list({}, {
+            responseContentType: 'application/json'
+        }, function (author) {
+            console.log('Authores', author.data);
+        });
+    }
 });
