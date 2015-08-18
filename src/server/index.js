@@ -1,7 +1,6 @@
 var hapi = require('hapi');
 var server = new hapi.Server();
 var intert = require('inert');
-var client = require('swagger-client');
 
 server.connection({port: 3000});
 
@@ -50,17 +49,27 @@ server.route({
     }
 });
 
-server.start(function () {
-    console.log('Running server at ', server.info.uri);
-});
+/**
+ * Dynamic routes
+ */
+var client = require('swagger-client');
 
-var ws = new client({
-    url: 'http://localhost:8080/swagger.json',
-    success: function () {
-        ws.author.list({}, {
-            responseContentType: 'application/json'
-        }, function (author) {
-            console.log('Authores', author.data);
+server.route({
+    method: 'GET',
+    path: '/authors/{param*}',
+    handler: function (request, reply) {
+        var swagger = new client({
+            url: 'http://localhost:8080/swagger.json',
+            success: function () {
+                swagger.author.list({max: 3, offset: 0}, function (response) {
+                    reply(response.data).type('application/json')
+                });
+            }
         });
     }
+});
+
+
+server.start(function () {
+    console.log('Running server at ', server.info.uri);
 });

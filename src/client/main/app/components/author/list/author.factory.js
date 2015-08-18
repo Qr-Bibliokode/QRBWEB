@@ -11,7 +11,7 @@
 
         return {
             list: function () {
-                $http.get("http://localhost:8080/api/author")
+                $http.get("http://localhost:3000/authors")
                     .then(function (response) {
                         authors = response.data;
                     });
