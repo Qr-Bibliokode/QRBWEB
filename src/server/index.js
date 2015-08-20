@@ -55,20 +55,36 @@ server.route({
 var client = require('swagger-client');
 
 server.route({
-    method: 'GET',
-    path: '/authors/{param*}',
-    handler: function (request, reply) {
-        var swagger = new client({
-            url: 'http://localhost:8080/swagger.json',
-            success: function () {
-                swagger.author.list({max: 3, offset: 0}, function (response) {
-                    reply(response.data).type('application/json')
-                });
-            }
-        });
+        method: 'GET',
+        path: '/authors/{param*}',
+        handler: function (request, reply) {
+            var swagger = new client({
+                url: 'http://localhost:8080/swagger.json',
+                success: function () {
+                    swagger.author.list({max: 10, offset: 0}, function (response) {
+                        reply(response.data).type('application/json')
+                    });
+                }
+            });
+        }
     }
-});
+);
 
+server.route({
+        method: 'delete',
+        path: '/authors/{id}',
+        handler: function (request, reply) {
+            var swagger = new client({
+                url: 'http://localhost:8080/swagger.json',
+                success: function () {
+                    swagger.author.delete({authorId: request.params.id}, function (response) {
+                        reply(response.data).type('application/json')
+                    });
+                }
+            });
+        }
+    }
+);
 
 server.start(function () {
     console.log('Running server at ', server.info.uri);

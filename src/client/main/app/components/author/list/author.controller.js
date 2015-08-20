@@ -17,6 +17,10 @@
             return AuthorFactory.get();
         };
 
+        vm.remove = function (id) {
+            AuthorFactory.delete(id);
+        };
+
         vm.init = list()
     }
 })();
