@@ -20,10 +20,10 @@
             $http.delete(url + id)
                 .success(function (result) {
                     console.log(result);
+                    list();
                 }).error(function () {
                     console.log("error");
                 });
-            list();
         }
 
         function create(author) {
