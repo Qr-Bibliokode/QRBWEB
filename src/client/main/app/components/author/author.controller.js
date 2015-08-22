@@ -8,6 +8,7 @@
     /** @ngInject */
     function AuthorController(AuthorFactory) {
         var vm = this;
+        vm.author = '';
 
         var list = function () {
             AuthorFactory.list();
@@ -18,7 +19,12 @@
         };
 
         vm.remove = function (id) {
-            AuthorFactory.delete(id);
+            AuthorFactory.remove(id);
+        };
+
+        vm.create = function () {
+            AuthorFactory.create(vm.author);
+
         };
 
         vm.init = list()

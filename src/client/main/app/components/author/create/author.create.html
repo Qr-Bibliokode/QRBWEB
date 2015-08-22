@@ -5,14 +5,14 @@
     <title></title>
 </head>
 <body ng-app="qrbweb" ng-controller="AuthorController as authorCtrl">
-<a href="../app/components/author/create/author.create.html">Novo autor</a>
+<h2>Criar novo autor</h2>
 <form>
-    <ul>
-        <li ng-repeat="author in authorCtrl.getAuthors()">
-            {{author.name}}
-            <button type="submit" ng-click="authorCtrl.remove(author.id)">Excluir</button>
-        </li>
-    </ul>
+    <label for="authorName">Nome: </label>
+    <input id="authorName" type="text" ng-model="authorCtrl.author.name"/>
+    <label for="authorNotes">Anotação: </label>
+    <input id="authorNotes" type="text" ng-model="authorCtrl.author.notes"/>
+    <br/>
+    <button type="submit" ng-click="authorCtrl.create()">Salvar</button>
 </form>
 </body>
 <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>

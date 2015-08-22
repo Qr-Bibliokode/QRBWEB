@@ -7,16 +7,27 @@
 
     function AuthorFactory($http) {
 
+        var url = "http://localhost:3000/authors/";
         var authors = [];
 
         function list() {
-            $http.get("http://localhost:3000/authors").then(function (response) {
+            $http.get(url).then(function (response) {
                 authors = response.data;
             });
         }
 
         function remove(id) {
-            $http.delete("http://localhost:3000/authors/" + id)
+            $http.delete(url + id)
+                .success(function (result) {
+                    console.log(result);
+                    list();
+                }).error(function () {
+                    console.log("error");
+                });
+        }
+
+        function create(author) {
+            $http.post(url, author)
                 .success(function (result) {
                     console.log(result);
                     list();
@@ -31,7 +42,8 @@
 
         return {
             list: list,
-            delete: remove,
+            remove: remove,
+            create: create,
             get: get
         };
     }
