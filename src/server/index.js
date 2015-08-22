@@ -26,7 +26,7 @@ server.route({
     path: '/author/{params*}',
     handler: {
         directory: {
-            path: 'src/client/main/app/components/author/list/author.list.html'
+            path: 'src/client/main/app/components/author/author.html'
         }
     }
 });
@@ -58,7 +58,7 @@ var client = require('swagger-client');
 
 server.route({
         method: 'GET',
-        path: '/authors/{param*}',
+        path: '/authors/',
         handler: function (request, reply) {
             var swagger = new client({
                 url: urlSwaggerJson,
@@ -90,12 +90,28 @@ server.route({
 
 server.route({
         method: 'POST',
-        path: '/authors/{param*}',
+        path: '/authors/',
         handler: function (request, reply) {
             var swagger = new client({
                 url: urlSwaggerJson,
                 success: function () {
                     swagger.author.create({author: request.payload}, function (response) {
+                        reply(response.data).type('application/json')
+                    });
+                }
+            });
+        }
+    }
+);
+
+server.route({
+        method: 'PUT',
+        path: '/authors/{id}',
+        handler: function (request, reply) {
+            var swagger = new client({
+                url: urlSwaggerJson,
+                success: function () {
+                    swagger.author.update({author: request.payload, authorId: request.params.id}, function (response) {
                         reply(response.data).type('application/json')
                     });
                 }

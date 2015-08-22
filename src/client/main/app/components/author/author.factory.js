@@ -20,20 +20,30 @@
             $http.delete(url + id)
                 .success(function (result) {
                     console.log(result);
-                    list();
                 }).error(function () {
                     console.log("error");
                 });
+            list();
         }
 
         function create(author) {
             $http.post(url, author)
                 .success(function (result) {
                     console.log(result);
-                    list();
                 }).error(function () {
                     console.log("error");
                 });
+            list();
+        }
+
+        function update(author) {
+            $http.put(url + author.id, author)
+                .success(function (result) {
+                    console.log(result);
+                }).error(function () {
+                    console.log("error");
+                });
+            list();
         }
 
         function get() {
@@ -44,7 +54,8 @@
             list: list,
             remove: remove,
             create: create,
-            get: get
+            get: get,
+            update: update
         };
     }
 })();

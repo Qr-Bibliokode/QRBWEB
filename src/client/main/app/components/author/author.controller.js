@@ -10,7 +10,7 @@
         var vm = this;
         vm.author = '';
 
-        var list = function () {
+        vm.list = function () {
             AuthorFactory.list();
         };
 
@@ -23,10 +23,23 @@
         };
 
         vm.create = function () {
-            AuthorFactory.create(vm.author);
-
+            if (vm.author.id) {
+                AuthorFactory.update(vm.author);
+            } else {
+                AuthorFactory.create(vm.author);
+            }
+            vm.clear();
+            vm.list();
         };
 
-        vm.init = list()
+        vm.edit = function (author) {
+            vm.author = author;
+        };
+
+        vm.clear = function () {
+            vm.author = '';
+        };
+
+        vm.init = vm.list()
     }
 })();
