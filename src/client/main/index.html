@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="qrbweb">
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="/bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/bower_components/angular-material-data-table/dist/md-data-table.min.css">
+    <link href="/bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
-<body ng-app="qrbweb">
-<h1>{{10 | currency}}</h1>
+<body>
+
+<div layout="column" style="padding-bottom: 15px;">
+    <md-toolbar class="md-info">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Menú principal</h2>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding style="height: 600px;padding: 24px;">
+        <ul>
+            <md-button href="#/author/novo/" class="md-raised md-primary">CRUD Author</md-button>
+        </ul>
+
+        <div ui-view></div>
+    </md-content>
+</div>
+
+
 </body>
-<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="app/index.module.js"></script>
+<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script type="text/javascript" src="/app/index.module.js"></script>
+<script type="text/javascript" src="/app/components/author/author.factory.js"></script>
+<script type="text/javascript" src="/app/components/author/author.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/author/list/author.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/author/create/author.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/author/edit/author.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/author/author.route.js"></script>
 </html>

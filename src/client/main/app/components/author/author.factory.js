@@ -3,17 +3,21 @@
 
     angular
         .module('qrbweb')
-        .factory('AuthorFactory', ['$http', AuthorFactory]);
+        .factory('AuthorFactory', ['$http', '$q', AuthorFactory]);
 
-    function AuthorFactory($http) {
+    function AuthorFactory($http, $q) {
 
         var url = "http://localhost:3000/authors/";
         var authors = [];
+        var author = '';
 
         function list() {
-            $http.get(url).then(function (response) {
+            var d = $q.defer();
+            $http.get(url).then(function (response, $q) {
+                d.resolve(response);
                 authors = response.data;
             });
+            return d.promise;
         }
 
         function remove(id) {
@@ -46,6 +50,15 @@
             list();
         }
 
+        function getById(id) {
+            if (!author.id) {
+                $http.get(url + id).success(function (result) {
+                    author = result;
+                });
+            }
+            return author;
+        }
+
         function get() {
             return authors;
         }
@@ -55,6 +68,7 @@
             remove: remove,
             create: create,
             get: get,
+            getById: getById,
             update: update
         };
     }

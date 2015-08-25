@@ -1,1 +1,1 @@
-angular.module('qrbweb', []);
+angular.module('qrbweb', ['ui.router','md.data.table', 'ngMaterial']);

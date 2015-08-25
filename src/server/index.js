@@ -12,11 +12,11 @@ server.route(routes);
 
 server.route({
     method: 'GET',
-    path: '/{param*}',
+    path: '/{path*}',
     handler: {
         directory: {
             path: 'src/client/main/',
-            redirectToSlash: true,
+            listing: false,
             index: true
         }
     }
@@ -24,10 +24,12 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/author/{params*}',
+    path: '/app/{param*}',
     handler: {
         directory: {
-            path: 'src/client/main/app/components/author/author.html'
+            path: 'src/client/main/app/',
+            redirectToSlash: true,
+            index: true
         }
     }
 });
@@ -38,16 +40,6 @@ server.route({
     handler: {
         directory: {
             path: 'bower_components/'
-        }
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/app/{params*}',
-    handler: {
-        directory: {
-            path: 'src/client/main/app/'
         }
     }
 });

@@ -19,6 +19,15 @@ module.exports = [
         }
     },
     {
+        method: 'GET',
+        path: '/authors/{authorId}',
+        handler: function (request, reply) {
+            swagger.author.getById({authorId: request.params.authorId}, function (response) {
+                reply(response.data).type('application/json')
+            });
+        }
+    },
+    {
         method: 'DELETE',
         path: '/authors/{id}',
         handler: function (request, reply) {
