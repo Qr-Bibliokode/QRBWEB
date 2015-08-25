@@ -51,12 +51,14 @@
         }
 
         function getById(id) {
-            if (!author.id) {
-                $http.get(url + id).success(function (result) {
-                    author = result;
-                });
-            }
-            return author;
+            //TODO melhorar esta funcionalidade
+            var authorFound = '';
+            authors.forEach(function (author) {
+                if (author.id == id) {
+                    authorFound = author;
+                }
+            });
+            return authorFound;
         }
 
         function get() {

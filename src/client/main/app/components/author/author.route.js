@@ -21,7 +21,18 @@
                         controllerAs: 'vm'
                     }
                 },
-                url: '/novo/:id?'
+                url: '/novo'
+            })
+            .state('authorEdit', {
+                parent: 'author',
+                views: {
+                    "tabAuthor": {
+                        templateUrl: 'app/components/author/edit/author.edit.html',
+                        controller: 'AuthorEditController',
+                        controllerAs: 'vm'
+                    }
+                },
+                url: '/edit/:id?'
             })
             .state('authorList', {
                 parent: 'author',

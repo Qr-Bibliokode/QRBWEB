@@ -30,10 +30,6 @@
             AuthorFactory.remove(id);
         };
 
-        vm.edit = function (author) {
-            //TODO Implementar
-        };
-
         vm.onorderchange = function () {
             return vm.list();
         };

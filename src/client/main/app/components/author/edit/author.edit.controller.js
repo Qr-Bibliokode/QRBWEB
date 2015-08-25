@@ -11,12 +11,9 @@
 
         vm.author = '';
 
-        vm.create = function () {
-            if (vm.author.id) {
-                AuthorFactory.update(vm.author);
-            }
+        vm.update = function () {
+            AuthorFactory.update(vm.author);
             vm.clear();
-            vm.list();
             $state.transitionTo('authorList');
         };
 
@@ -24,15 +21,11 @@
             vm.author = AuthorFactory.getById($stateParams.id)
         };
 
-        vm.loadAuthor();
-
-        vm.list = function () {
-            return AuthorFactory.list();
-        };
-
         vm.clear = function () {
             vm.author = null;
         };
+
+        vm.loadAuthor();
     }
 })
 ();
