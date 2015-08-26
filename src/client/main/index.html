@@ -18,7 +18,13 @@
     </md-toolbar>
     <md-content layout-padding style="height: 600px;padding: 24px;">
         <ul>
-            <md-button href="#/author/novo" class="md-raised md-primary">CRUD Author</md-button>
+            <md-button href="#/author/listagem" class="md-raised md-primary">CRUD Author</md-button>
+        </ul>
+        <ul>
+            <md-button href="#/category/listagem" class="md-raised md-primary">CRUD Category</md-button>
+        </ul>
+        <ul>
+            <md-button href="#/idiom/listagem" class="md-raised md-primary">CRUD Idiom</md-button>
         </ul>
 
         <div ui-view></div>
@@ -41,4 +47,18 @@
 <script type="text/javascript" src="/app/components/author/create/author.create.controller.js"></script>
 <script type="text/javascript" src="/app/components/author/edit/author.edit.controller.js"></script>
 <script type="text/javascript" src="/app/components/author/author.route.js"></script>
+
+<script type="text/javascript" src="/app/components/category/category.factory.js"></script>
+<script type="text/javascript" src="/app/components/category/category.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/category/list/category.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/category/create/category.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/category/edit/category.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/category/category.route.js"></script>
+
+<script type="text/javascript" src="/app/components/idiom/idiom.factory.js"></script>
+<script type="text/javascript" src="/app/components/idiom/idiom.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/idiom/list/idiom.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/idiom/create/idiom.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/idiom/edit/idiom.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/idiom/idiom.route.js"></script>
 </html>
