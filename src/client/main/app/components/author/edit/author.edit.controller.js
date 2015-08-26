@@ -14,8 +14,8 @@
         vm.update = function () {
             AuthorFactory.update(vm.author).then(function () {
                 vm.clear();
+                $state.transitionTo('authorList');
             });
-            $state.transitionTo('authorList');
         };
 
         vm.loadAuthor = function () {

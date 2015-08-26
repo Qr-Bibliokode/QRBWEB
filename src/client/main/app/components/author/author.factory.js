@@ -32,7 +32,6 @@
             var d = $q.defer();
             $http.post(url, author).then(function (response, $q) {
                 d.resolve(response);
-                author = response.data;
             });
             return d.promise;
         }

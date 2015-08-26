@@ -3,13 +3,13 @@
         <div layout layout-sm="column">
             <md-input-container flex="100">
                 <label>Nome do autor</label>
-                <input ng-model="vm.author.name" max="254">
+                <input name="authorName" md-maxlength="50" ng-model="vm.author.name">
             </md-input-container>
         </div>
         <div layout layout-sm="column">
             <md-input-container flex="100">
                 <label>Anotações (Referências, contato, e-mail, telefone...)</label>
-                <input ng-model="vm.author.notes"/>
+                <input name="authorNotes" ng-model="vm.author.notes"/>
             </md-input-container>
         </div>
     </md-card-content>
