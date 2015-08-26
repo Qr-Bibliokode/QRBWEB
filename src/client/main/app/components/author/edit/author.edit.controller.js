@@ -12,17 +12,20 @@
         vm.author = '';
 
         vm.update = function () {
-            AuthorFactory.update(vm.author);
-            vm.clear();
+            AuthorFactory.update(vm.author).then(function () {
+                vm.clear();
+            });
             $state.transitionTo('authorList');
         };
 
         vm.loadAuthor = function () {
-            vm.author = AuthorFactory.getById($stateParams.id)
+            AuthorFactory.getById($stateParams.id).then(function (result) {
+                vm.author = result.data;
+            });
         };
 
         vm.clear = function () {
-            vm.author = null;
+            vm.author = '';
         };
 
         vm.loadAuthor();

@@ -10,8 +10,9 @@
         var vm = this;
 
         vm.create = function () {
-            AuthorFactory.create(vm.author);
-            vm.clear();
+            AuthorFactory.create(vm.author).then(function () {
+                vm.clear();
+            });
         };
 
         vm.clear = function () {

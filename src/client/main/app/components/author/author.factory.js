@@ -9,7 +9,6 @@
 
         var url = "http://localhost:3000/authors/";
         var authors = [];
-        var author = '';
 
         function list() {
             var d = $q.defer();
@@ -21,44 +20,37 @@
         }
 
         function remove(id) {
-            $http.delete(url + id)
-                .success(function (result) {
-                    console.log(result);
-                    list();
-                }).error(function () {
-                    console.log("error");
-                });
+            var d = $q.defer();
+            $http.delete(url + id).then(function (response, $q) {
+                d.resolve(response);
+                list();
+            });
+            return d.promise;
         }
 
         function create(author) {
-            $http.post(url, author)
-                .success(function (result) {
-                    console.log(result);
-                }).error(function () {
-                    console.log("error");
-                });
-            list();
+            var d = $q.defer();
+            $http.post(url, author).then(function (response, $q) {
+                d.resolve(response);
+                author = response.data;
+            });
+            return d.promise;
         }
 
         function update(author) {
-            $http.put(url + author.id, author)
-                .success(function (result) {
-                    console.log(result);
-                }).error(function () {
-                    console.log("error");
-                });
-            list();
+            var d = $q.defer();
+            $http.put(url + author.id, author).then(function (response, $q) {
+                d.resolve(response);
+            });
+            return d.promise;
         }
 
         function getById(id) {
-            //TODO melhorar esta funcionalidade
-            var authorFound = '';
-            authors.forEach(function (author) {
-                if (author.id == id) {
-                    authorFound = author;
-                }
+            var d = $q.defer();
+            $http.get(url + id).then(function (response, $q) {
+                d.resolve(response);
             });
-            return authorFound;
+            return d.promise;
         }
 
         function get() {
