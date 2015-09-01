@@ -6,7 +6,7 @@
 
     function IdiomTabsController($scope, $state) {
         var vm = this;
-        vm.title = 'Página idiomas';
+        vm.title = 'Página Idiom';
 
         $scope.$watch('selectedTab', function (current) {
             switch (current) {

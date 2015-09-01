@@ -2,19 +2,19 @@
     'use strict';
 
     angular.module('qrbweb')
-        .controller('AuthorTabsController', ['$scope', '$state', AuthorTabsController]);
+        .controller('EmployeeTabsController', ['$scope', '$state', EmployeeTabsController]);
 
-    function AuthorTabsController($scope, $state) {
+    function EmployeeTabsController($scope, $state) {
         var vm = this;
-        vm.title = 'Página Author';
+        vm.title = 'Página Employee';
 
         $scope.$watch('selectedTab', function (current) {
             switch (current) {
                 case 0:
-                    $state.transitionTo('authorList');
+                    $state.transitionTo('employeeList');
                     break;
                 case 1:
-                    $state.transitionTo('authorCreate');
+                    $state.transitionTo('employeeCreate');
                     break;
             }
         });
