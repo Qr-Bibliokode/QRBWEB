@@ -29,7 +29,7 @@
                 <td>{{book.status}}</td>
                 <td>{{book.category}}</td>
                 <td>{{book.authors}}</td>
-                <td>{{book.comments}}</td>
+                <td>{{book.comments.length}}</td>
                 <td>
                     <md-button ng-click="vm.edit(book)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="bookEdit(book)">

@@ -37,12 +37,10 @@
             <md-option ng-value="category" ng-repeat="category in vm.getCategories()">{{category.description}}</md-option>
         </md-select>
 
-        <div layout layout-sm="column">
-            <md-input-container flex="100">
-                <label>Autoria</label>
-                <input ng-model="vm.book.authors">
-            </md-input-container>
-        </div>
+        <md-select placeholder="Selecione um autor" ng-model="vm.book.authors" md-on-open="vm.loadAuthors()" style="min-width: 200px;" multiple="true">
+            <md-option ng-value="author" ng-repeat="author in vm.getAuthors()">{{author.name}}</md-option>
+        </md-select>
+
     </md-card-content>
     <md-card-footer>
         <md-button>Salvar</md-button>

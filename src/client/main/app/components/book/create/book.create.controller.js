@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('BookCreateController', ['BookFactory', 'IdiomFactory', 'StatusFactory', 'CategoryFactory', BookCreateController]);
+        .controller('BookCreateController', ['AuthorFactory', 'BookFactory', 'IdiomFactory', 'StatusFactory', 'CategoryFactory', '$scope', BookCreateController]);
 
     /** @ngInject */
-    function BookCreateController(BookFactory, IdiomFactory, StatusFactory, CategoryFactory) {
+    function BookCreateController(AuthorFactory, BookFactory, IdiomFactory, StatusFactory, CategoryFactory, $scope) {
         var vm = this;
 
         vm.create = function () {
@@ -16,7 +16,25 @@
         };
 
         vm.clear = function () {
+            vm.book.authors = '';
             vm.book = '';
+            console.log(vm.book.authors)
+        };
+
+        vm.loadAuthors = function () {
+            AuthorFactory.list();
+        };
+
+        vm.getAuthors = function () {
+            return AuthorFactory.get();
+        };
+
+        vm.loadCategories = function () {
+            CategoryFactory.list();
+        };
+
+        vm.getCategories = function () {
+            return CategoryFactory.get();
         };
 
         vm.loadIdioms = function () {
@@ -27,21 +45,12 @@
             return IdiomFactory.get();
         };
 
-
         vm.loadStatus = function () {
             StatusFactory.list();
         };
 
         vm.getStatus = function () {
             return StatusFactory.get();
-        };
-
-        vm.loadCategories = function () {
-            CategoryFactory.list();
-        };
-
-        vm.getCategories = function () {
-            return CategoryFactory.get();
         };
     }
 })();
