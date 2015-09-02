@@ -1,0 +1,23 @@
+<md-card>
+    <md-card-content>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Descrição da data</label>
+                <input md-maxlength="50" ng-model="vm.holiday.description">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <md-datepicker ng-model="vm.holiday.startDate"></md-datepicker>
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <md-datepicker ng-model="vm.holiday.finalDate"></md-datepicker>
+            </md-input-container>
+        </div>
+    </md-card-content>
+    <md-card-footer>
+        <md-button>Salvar</md-button>
+    </md-card-footer>
+</md-card>
