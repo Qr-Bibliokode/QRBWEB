@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css"
           href="/bower_components/angular-material-data-table/dist/md-data-table.min.css">
     <link href="/bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/app/vendor/md-icon/custom.style.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -24,8 +25,10 @@
         <md-button href="#/employee/listagem" class="md-raised md-primary">CRUD Employee</md-button>
         <md-button href="#/holiday/listagem" class="md-raised md-primary">CRUD Holiday</md-button>
         <md-button href="#/idiom/listagem" class="md-raised md-primary">CRUD Idiom</md-button>
+        <md-button href="#/lending/listagem" class="md-raised md-primary">CRUD Lending</md-button>
         <md-button href="#/stock/listagem" class="md-raised md-primary">CRUD Stock</md-button>
         <md-button href="#/student/listagem" class="md-raised md-primary">CRUD Student</md-button>
+        <md-button href="#/userAccount/listagem" class="md-raised md-primary">CRUD UserAccount</md-button>
         <div ui-view></div>
     </md-content>
 </div>
@@ -102,4 +105,18 @@
 <script type="text/javascript" src="/app/components/student/create/student.create.controller.js"></script>
 <script type="text/javascript" src="/app/components/student/edit/student.edit.controller.js"></script>
 <script type="text/javascript" src="/app/components/student/student.route.js"></script>
+
+<script type="text/javascript" src="/app/components/lending/lending.factory.js"></script>
+<script type="text/javascript" src="/app/components/lending/lending.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/lending/list/lending.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/lending/create/lending.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/lending/edit/lending.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/lending/lending.route.js"></script>
+
+<script type="text/javascript" src="/app/components/userAccount/userAccount.factory.js"></script>
+<script type="text/javascript" src="/app/components/userAccount/userAccount.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/userAccount/list/userAccount.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/userAccount/create/userAccount.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/userAccount/edit/userAccount.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/userAccount/userAccount.route.js"></script>
 </html>

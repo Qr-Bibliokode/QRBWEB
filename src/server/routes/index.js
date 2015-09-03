@@ -7,6 +7,7 @@ var holiday = require('./holiday.routes');
 var idiom = require('./idiom.routes');
 var stock = require('./stock.routes');
 var student = require('./student.routes');
+var lending = require('./lending.routes');
 var userAccount = require('./userAccount.routes');
 
-module.exports = [].concat(author, book, category, comment, employee, holiday, idiom, stock, student, userAccount);
+module.exports = [].concat(author, book, category, comment, employee, holiday, idiom, stock, student, userAccount, lending);
