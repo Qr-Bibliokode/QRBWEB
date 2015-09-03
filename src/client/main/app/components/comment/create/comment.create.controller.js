@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('CommentCreateController', ['CommentFactory', 'BookFactory', CommentCreateController]);
+        .controller('CommentCreateController', ['CommentFactory', CommentCreateController]);
 
     /** @ngInject */
-    function CommentCreateController(CommentFactory, BookFactory) {
+    function CommentCreateController(CommentFactory) {
         var vm = this;
 
         vm.create = function () {
@@ -17,14 +17,6 @@
 
         vm.clear = function () {
             vm.comment = '';
-        };
-
-        vm.loadBooks = function () {
-            BookFactory.list();
-        };
-
-        vm.getBooks = function () {
-            return BookFactory.get();
         };
     }
 })();

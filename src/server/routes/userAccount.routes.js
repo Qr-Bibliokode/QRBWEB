@@ -11,45 +11,45 @@ var swagger = new client({
 module.exports = [
     {
         method: 'GET',
-        path: '/status/',
+        path: '/userAccounts/',
         handler: function (request, reply) {
-            swagger.status.list({max: 10, offset: 0}, function (response) {
+            swagger.userAccount.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
             });
         }
     },
     {
         method: 'GET',
-        path: '/status/{statusId}',
+        path: '/userAccounts/{userAccountId}',
         handler: function (request, reply) {
-            swagger.status.getById({statusId: request.params.statusId}, function (response) {
+            swagger.userAccount.getById({userAccountId: request.params.userAccountId}, function (response) {
                 reply(response.data).type('application/json')
             });
         }
     },
     {
         method: 'DELETE',
-        path: '/status/{id}',
+        path: '/userAccounts/{id}',
         handler: function (request, reply) {
-            swagger.status.delete({statusId: request.params.id}, function (response) {
+            swagger.userAccount.delete({userAccountId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             });
         }
     },
     {
         method: 'POST',
-        path: '/status/',
+        path: '/userAccounts/',
         handler: function (request, reply) {
-            swagger.status.create({status: request.payload}, function (response) {
+            swagger.userAccount.create({userAccount: request.payload}, function (response) {
                 reply(response.data).type('application/json')
             });
         }
     },
     {
         method: 'PUT',
-        path: '/status/{id}',
+        path: '/userAccounts/{id}',
         handler: function (request, reply) {
-            swagger.status.update({status: request.payload, statusId: request.params.id}, function (response) {
+            swagger.userAccount.update({userAccount: request.payload, userAccountId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             });
         }

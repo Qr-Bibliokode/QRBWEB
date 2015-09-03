@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('StatusListController', ['StatusFactory', '$scope', StatusListController]);
+        .controller('UserAccountListController', ['UserAccountFactory', '$scope', UserAccountListController]);
 
     /** @ngInject */
-    function StatusListController(StatusFactory, $scope) {
+    function UserAccountListController(UserAccountFactory, $scope) {
         var vm = this;
 
         vm.selected = [];
@@ -19,15 +19,15 @@
         };
 
         vm.list = function () {
-            return StatusFactory.list();
+            return UserAccountFactory.list();
         };
 
-        vm.getStatus = function () {
-            return StatusFactory.get();
+        vm.getUserAccounts = function () {
+            return UserAccountFactory.get();
         };
 
         vm.remove = function (id) {
-            StatusFactory.remove(id);
+            UserAccountFactory.remove(id);
         };
 
         vm.onorderchange = function () {

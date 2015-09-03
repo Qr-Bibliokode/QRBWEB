@@ -29,10 +29,6 @@
             <md-option ng-value="idiom" ng-repeat="idiom in vm.getIdioms()">{{idiom.description}}</md-option>
         </md-select>
 
-        <md-select placeholder="Selecione um estado" ng-model="vm.book.status" md-on-open="vm.loadStatus()" style="min-width: 200px;">
-            <md-option ng-value="status" ng-repeat="status in vm.getStatus()">{{status.description}}</md-option>
-        </md-select>
-
         <md-select placeholder="Selecione uma categoria" ng-model="vm.book.category" md-on-open="vm.loadCategories()" style="min-width: 200px;">
             <md-option ng-value="category" ng-repeat="category in vm.getCategories()">{{category.description}}</md-option>
         </md-select>

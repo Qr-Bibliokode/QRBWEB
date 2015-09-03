@@ -3,18 +3,18 @@
 
     angular
         .module('qrbweb')
-        .factory('StatusFactory', ['$http', '$q', StatusFactory]);
+        .factory('UserAccountFactory', ['$http', '$q', UserAccountFactory]);
 
-    function StatusFactory($http, $q) {
+    function UserAccountFactory($http, $q) {
 
-        var url = "http://localhost:3000/status/";
-        var status = [];
+        var url = "http://localhost:3000/userAccounts/";
+        var userAccounts = [];
 
         function list() {
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
                 d.resolve(response);
-                status = response.data;
+                userAccounts = response.data;
             });
             return d.promise;
         }
@@ -28,17 +28,17 @@
             return d.promise;
         }
 
-        function create(status) {
+        function create(userAccount) {
             var d = $q.defer();
-            $http.post(url, status).then(function (response, $q) {
+            $http.post(url, userAccount).then(function (response, $q) {
                 d.resolve(response);
             });
             return d.promise;
         }
 
-        function update(status) {
+        function update(userAccount) {
             var d = $q.defer();
-            $http.put(url + status.id, status).then(function (response, $q) {
+            $http.put(url + userAccount.id, userAccount).then(function (response, $q) {
                 d.resolve(response);
             });
             return d.promise;
@@ -53,7 +53,7 @@
         }
 
         function get() {
-            return status;
+            return userAccounts;
         }
 
         return {
