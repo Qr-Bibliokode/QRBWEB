@@ -34,7 +34,7 @@
                     d.resolve(response);
                 },
                 function (data) {
-                    d.resolve(data);
+                    d.reject(data);
                 });
             return d.promise;
         }
@@ -45,7 +45,7 @@
                     d.resolve(response);
                 },
                 function (data) {
-                    d.resolve(data);
+                    d.reject(data);
                 });
             return d.promise;
         }
