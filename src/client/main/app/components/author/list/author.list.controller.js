@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('AuthorListController', ['AuthorFactory', '$scope', AuthorListController]);
+        .controller('AuthorListController', ['AuthorFactory', '$scope', 'MessageFactory', AuthorListController]);
 
     /** @ngInject */
-    function AuthorListController(AuthorFactory, $scope) {
+    function AuthorListController(AuthorFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -28,6 +28,8 @@
 
         vm.remove = function (id) {
             AuthorFactory.remove(id);
+            MessageFactory.show('success','Author deletado com sucesso.')
+
         };
 
         vm.onorderchange = function () {

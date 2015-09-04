@@ -53,6 +53,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.author.update({author: request.payload, authorId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     }

@@ -42,8 +42,11 @@
         function update(author) {
             var d = $q.defer();
             $http.put(url + author.id, author).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.resolve(data);
+                });
             return d.promise;
         }
 
