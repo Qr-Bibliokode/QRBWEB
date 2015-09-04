@@ -31,8 +31,11 @@
         function create(author) {
             var d = $q.defer();
             $http.post(url, author).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.resolve(data);
+                });
             return d.promise;
         }
 
