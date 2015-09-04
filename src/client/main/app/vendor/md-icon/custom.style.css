@@ -1,3 +1,9 @@
+md-icon.md-128 {
+    margin: 0;
+    margin-top: -100px;
+    font-size: 128px;
+}
+
 md-icon.md-48 {
     font-size: 48px;
 }

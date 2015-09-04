@@ -1,0 +1,7 @@
+md-grid-list > .green {
+    background: rgba(0, 255, 173, 0.09);
+}
+
+md-grid-list > .blue {
+    background: rgba(0, 166, 255, 0.09);
+}
