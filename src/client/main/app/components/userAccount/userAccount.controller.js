@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('qrbweb')
-        .controller('UserAccountController', ['$scope', '$state', 'StudentFactory', 'EmployeeFactory', 'MessageFactory', 'UserAccountFactory', UserAccountController]);
+        .controller('UserAccountController', ['StudentFactory', 'EmployeeFactory', 'MessageFactory', 'UserAccountFactory', UserAccountController]);
 
     function UserAccountController(StudentFactory, EmployeeFactory, MessageFactory, UserAccountFactory) {
         var vm = this;

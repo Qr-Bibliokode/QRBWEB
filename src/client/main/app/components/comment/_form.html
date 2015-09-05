@@ -8,9 +8,22 @@
         </md-select>
         <div layout layout-sm="column">
             <md-input-container flex="100">
+                <label>Avaliação</label>
+                <input md-maxlength="50" ng-model="vm.comment.avaliation">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
                 <label>Descrição do comentário</label>
                 <input md-maxlength="50" ng-model="vm.comment.description">
             </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <label>Recomendar livro ?</label>
+            <md-radio-group ng-model="vm.comment.recomendation">
+                <md-radio-button value="true">Sim</md-radio-button>
+                <md-radio-button value="false">Não</md-radio-button>
+            </md-radio-group>
         </div>
     </md-card-content>
     <md-card-footer>
