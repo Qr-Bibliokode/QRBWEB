@@ -10,7 +10,9 @@
         $stateProvider
             .state('userAccount', {
                 url: '/userAccount',
-                templateUrl: 'app/components/userAccount/userAccount.tabs.html'
+                templateUrl: 'app/components/userAccount/userAccount.html',
+                controller: 'UserAccountController',
+                controllerAs: 'vm'
             })
             .state('userAccountCreate', {
                 parent: 'userAccount',
