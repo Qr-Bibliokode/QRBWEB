@@ -15,6 +15,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.userAccount.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -24,6 +26,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.userAccount.getById({userAccountId: request.params.userAccountId}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -33,6 +37,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.userAccount.delete({userAccountId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -42,6 +48,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.userAccount.create({userAccount: request.payload}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -49,8 +57,13 @@ module.exports = [
         method: 'PUT',
         path: '/userAccounts/{id}',
         handler: function (request, reply) {
-            swagger.userAccount.update({userAccount: request.payload, userAccountId: request.params.id}, function (response) {
+            swagger.userAccount.update({
+                userAccount: request.payload,
+                userAccountId: request.params.id
+            }, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     }

@@ -3,15 +3,18 @@
 
     angular
         .module('qrbweb')
-        .controller('EmployeeCreateController', ['EmployeeFactory', EmployeeCreateController]);
+        .controller('EmployeeCreateController', ['EmployeeFactory', 'MessageFactory', EmployeeCreateController]);
 
     /** @ngInject */
-    function EmployeeCreateController(EmployeeFactory) {
+    function EmployeeCreateController(EmployeeFactory, MessageFactory) {
         var vm = this;
 
         vm.create = function () {
             EmployeeFactory.create(vm.employee).then(function () {
+                MessageFactory.success('Empregado ' + vm.employee.name + ' salvo com sucesso.');
                 vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

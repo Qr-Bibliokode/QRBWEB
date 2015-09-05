@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('EmployeeEditController', ['EmployeeFactory', '$stateParams', '$state', EmployeeEditController]);
+        .controller('EmployeeEditController', ['EmployeeFactory', '$stateParams', '$state', 'MessageFactory', EmployeeEditController]);
 
     /** @ngInject */
-    function EmployeeEditController(EmployeeFactory, $stateParams, $state) {
+    function EmployeeEditController(EmployeeFactory, $stateParams, $state, MessageFactory) {
         var vm = this;
 
         vm.employee = '';
 
         vm.update = function () {
             EmployeeFactory.update(vm.employee).then(function () {
+                MessageFactory.success('Empregado ' + vm.employee.name + ' editado com sucesso.');
                 vm.clear();
                 $state.transitionTo('employeeList');
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

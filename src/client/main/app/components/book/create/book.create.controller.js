@@ -3,20 +3,22 @@
 
     angular
         .module('qrbweb')
-        .controller('BookCreateController', ['AuthorFactory', 'BookFactory', 'IdiomFactory', 'CategoryFactory', BookCreateController]);
+        .controller('BookCreateController', ['AuthorFactory', 'BookFactory', 'IdiomFactory', 'CategoryFactory', 'MessageFactory', BookCreateController]);
 
     /** @ngInject */
-    function BookCreateController(AuthorFactory, BookFactory, IdiomFactory, CategoryFactory) {
+    function BookCreateController(AuthorFactory, BookFactory, IdiomFactory, CategoryFactory, MessageFactory) {
         var vm = this;
 
         vm.create = function () {
             BookFactory.create(vm.book).then(function () {
+                MessageFactory.success('Livro ' + vm.book.title + ' salvo com sucesso.');
                 vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 
         vm.clear = function () {
-            vm.book.authors = '';
             vm.book = '';
             console.log(vm.book.authors)
         };

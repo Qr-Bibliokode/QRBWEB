@@ -15,6 +15,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.lending.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -24,6 +26,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.lending.getById({lendingId: request.params.lendingId}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -33,6 +37,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.lending.delete({lendingId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -42,6 +48,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.lending.create({lending: request.payload}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -51,6 +59,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.lending.update({lending: request.payload, lendingId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     }

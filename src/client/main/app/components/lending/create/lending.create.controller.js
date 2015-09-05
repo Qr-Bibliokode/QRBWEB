@@ -3,15 +3,18 @@
 
     angular
         .module('qrbweb')
-        .controller('LendingCreateController', ['LendingFactory', LendingCreateController]);
+        .controller('LendingCreateController', ['LendingFactory', 'MessageFactory', LendingCreateController]);
 
     /** @ngInject */
-    function LendingCreateController(LendingFactory) {
+    function LendingCreateController(LendingFactory, MessageFactory) {
         var vm = this;
 
         vm.create = function () {
             LendingFactory.create(vm.lending).then(function () {
+                MessageFactory.success('Empréstimo ' + vm.lending.id + ' realizado com sucesso.');
                 vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

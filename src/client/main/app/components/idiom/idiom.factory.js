@@ -13,42 +13,57 @@
         function list() {
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
-                d.resolve(response);
-                idioms = response.data;
-            });
+                    d.resolve(response);
+                    idioms = response.data;
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
         function remove(id) {
             var d = $q.defer();
             $http.delete(url + id).then(function (response, $q) {
-                d.resolve(response);
-                list();
-            });
+                    d.resolve(response);
+                    list();
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
         function create(idiom) {
             var d = $q.defer();
             $http.post(url, idiom).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
         function update(idiom) {
             var d = $q.defer();
             $http.put(url + idiom.id, idiom).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
         function getById(id) {
             var d = $q.defer();
             $http.get(url + id).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 

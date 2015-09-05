@@ -15,6 +15,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.author.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -24,6 +26,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.author.getById({authorId: request.params.authorId}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -33,6 +37,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.author.delete({authorId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },

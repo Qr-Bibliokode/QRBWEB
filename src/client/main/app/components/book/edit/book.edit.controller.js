@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('BookEditController', ['AuthorFactory', 'BookFactory', '$stateParams', '$state', 'IdiomFactory', 'StatusFactory', 'CategoryFactory', BookEditController]);
+        .controller('BookEditController', ['AuthorFactory', 'BookFactory', '$stateParams', '$state', 'IdiomFactory', 'CategoryFactory', 'MessageFactory', BookEditController]);
 
     /** @ngInject */
-    function BookEditController(AuthorFactory, BookFactory, $stateParams, $state, IdiomFactory, StatusFactory, CategoryFactory) {
+    function BookEditController(AuthorFactory, BookFactory, $stateParams, $state, IdiomFactory, CategoryFactory, MessageFactory) {
         var vm = this;
 
         vm.book = '';
 
         vm.update = function () {
             BookFactory.update(vm.book).then(function () {
+                MessageFactory.success('Livro ' + vm.book.title + ' editado com sucesso.');
                 vm.clear();
                 $state.transitionTo('bookList');
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 
@@ -52,14 +55,6 @@
 
         vm.getIdioms = function () {
             return IdiomFactory.get();
-        };
-
-        vm.loadStatus = function () {
-            StatusFactory.list();
-        };
-
-        vm.getStatus = function () {
-            return StatusFactory.get();
         };
     }
 })

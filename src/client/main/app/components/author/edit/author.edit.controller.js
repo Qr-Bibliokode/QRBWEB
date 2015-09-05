@@ -12,14 +12,12 @@
         vm.author = '';
 
         vm.update = function () {
-            AuthorFactory.update(vm.author).then(function (response) {
-                if (response.data.errors) {
-                    MessageFactory.show('error', response.data.errors[0].message);
-                } else {
-                    MessageFactory.show('success', 'Author ' + vm.author.name + ' editado com sucesso.');
-                    vm.clear();
-                    $state.transitionTo('authorList');
-                }
+            AuthorFactory.update(vm.author).then(function () {
+                MessageFactory.success('Author ' + vm.author.name + ' salvo com sucesso.');
+                vm.clear();
+                $state.transitionTo('authorList');
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

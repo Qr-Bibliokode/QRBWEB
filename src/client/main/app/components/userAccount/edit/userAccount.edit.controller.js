@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('UserAccountEditController', ['UserAccountFactory', '$stateParams', '$state', UserAccountEditController]);
+        .controller('UserAccountEditController', ['UserAccountFactory', '$stateParams', '$state', 'MessageFactory', UserAccountEditController]);
 
     /** @ngInject */
-    function UserAccountEditController(UserAccountFactory, $stateParams, $state) {
+    function UserAccountEditController(UserAccountFactory, $stateParams, $state, MessageFactory) {
         var vm = this;
 
         vm.userAccount = '';
 
         vm.update = function () {
             UserAccountFactory.update(vm.userAccount).then(function () {
-                vm.clear();
+                MessageFactory.success('Conta editada com sucesso.');
                 $state.transitionTo('userAccountList');
+                vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

@@ -3,15 +3,18 @@
 
     angular
         .module('qrbweb')
-        .controller('StockCreateController', ['StockFactory', 'BookFactory', StockCreateController]);
+        .controller('StockCreateController', ['StockFactory', 'BookFactory', 'MessageFactory', StockCreateController]);
 
     /** @ngInject */
-    function StockCreateController(StockFactory, BookFactory) {
+    function StockCreateController(StockFactory, BookFactory, MessageFactory) {
         var vm = this;
 
         vm.create = function () {
             StockFactory.create(vm.stock).then(function () {
+                MessageFactory.success('Inserido livro no estoque com sucesso.');
                 vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

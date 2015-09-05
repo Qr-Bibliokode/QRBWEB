@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('CommentEditController', ['CommentFactory', '$stateParams', '$state', 'BookFactory', CommentEditController]);
+        .controller('CommentEditController', ['CommentFactory', '$stateParams', '$state', 'BookFactory', 'MessageFactory', CommentEditController]);
 
     /** @ngInject */
-    function CommentEditController(CommentFactory, $stateParams, $state, BookFactory) {
+    function CommentEditController(CommentFactory, $stateParams, $state, BookFactory, MessageFactory) {
         var vm = this;
 
         vm.comment = '';
 
         vm.update = function () {
             CommentFactory.update(vm.comment).then(function () {
+                MessageFactory.success('Comentário editado com sucesso.');
                 vm.clear();
                 $state.transitionTo('commentList');
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('HolidayEditController', ['HolidayFactory', '$stateParams', '$state', HolidayEditController]);
+        .controller('HolidayEditController', ['HolidayFactory', '$stateParams', '$state', 'MessageFactory', HolidayEditController]);
 
     /** @ngInject */
-    function HolidayEditController(HolidayFactory, $stateParams, $state) {
+    function HolidayEditController(HolidayFactory, $stateParams, $state, MessageFactory) {
         var vm = this;
 
         vm.holiday = '';
 
         vm.update = function () {
             HolidayFactory.update(vm.holiday).then(function () {
-                vm.clear();
+                MessageFactory.success('Feriado ' + vm.holiday.description + ' editado com sucesso.');
                 $state.transitionTo('holidayList');
+                vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

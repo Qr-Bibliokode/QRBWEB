@@ -15,6 +15,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.stock.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -24,6 +26,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.stock.getById({stockId: request.params.stockId}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -33,6 +37,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.stock.delete({stockId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -42,6 +48,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.stock.create({stock: request.payload}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     },
@@ -51,6 +59,8 @@ module.exports = [
         handler: function (request, reply) {
             swagger.stock.update({stock: request.payload, stockId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
             });
         }
     }

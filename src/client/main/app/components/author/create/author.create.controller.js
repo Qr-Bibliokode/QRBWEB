@@ -10,7 +10,7 @@
         var vm = this;
 
         vm.create = function () {
-            AuthorFactory.create(vm.author).then(function (response) {
+            AuthorFactory.create(vm.author).then(function () {
                 MessageFactory.success('Author ' + vm.author.name + ' salvo com sucesso.');
                 vm.clear();
             }, function (response) {

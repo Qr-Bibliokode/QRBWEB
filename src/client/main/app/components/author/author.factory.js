@@ -13,18 +13,24 @@
         function list() {
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
-                d.resolve(response);
-                authors = response.data;
-            });
+                    d.resolve(response);
+                    authors = response.data;
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
         function remove(id) {
             var d = $q.defer();
             $http.delete(url + id).then(function (response, $q) {
-                d.resolve(response);
-                list();
-            });
+                    d.resolve(response);
+                    list();
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 
@@ -53,8 +59,11 @@
         function getById(id) {
             var d = $q.defer();
             $http.get(url + id).then(function (response, $q) {
-                d.resolve(response);
-            });
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
             return d.promise;
         }
 

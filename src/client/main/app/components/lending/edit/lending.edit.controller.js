@@ -3,18 +3,21 @@
 
     angular
         .module('qrbweb')
-        .controller('LendingEditController', ['LendingFactory', '$stateParams', '$state', LendingEditController]);
+        .controller('LendingEditController', ['LendingFactory', '$stateParams', '$state', 'MessageFactory', LendingEditController]);
 
     /** @ngInject */
-    function LendingEditController(LendingFactory, $stateParams, $state) {
+    function LendingEditController(LendingFactory, $stateParams, $state, MessageFactory) {
         var vm = this;
 
         vm.lending = '';
 
         vm.update = function () {
             LendingFactory.update(vm.lending).then(function () {
-                vm.clear();
+                MessageFactory.success('Empréstimo ' + vm.lending.id + ' editado com sucesso.');
                 $state.transitionTo('lendingList');
+                vm.clear();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 
