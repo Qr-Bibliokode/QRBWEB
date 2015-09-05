@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('IdiomListController', ['IdiomFactory', '$scope', IdiomListController]);
+        .controller('IdiomListController', ['IdiomFactory', '$scope', 'MessageFactory', IdiomListController]);
 
     /** @ngInject */
-    function IdiomListController(IdiomFactory, $scope) {
+    function IdiomListController(IdiomFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            IdiomFactory.remove(id);
+            IdiomFactory.remove(id).then(function () {
+                MessageFactory.success('Idioma deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este idioma');
+            });
         };
 
         vm.onorderchange = function () {

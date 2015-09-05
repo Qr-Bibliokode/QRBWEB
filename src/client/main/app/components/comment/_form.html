@@ -1,9 +1,11 @@
 <md-card>
     <md-card-content>
-        <!-- After implement userAccounts-->
-        <!--<md-select placeholder="Selecione o usuário" ng-model="vm.comment.userAccount" md-on-open="vm.loadUserAccounts()" style="min-width: 200px;">-->
-        <!--<md-option ng-value="userAccount" ng-repeat="userAccount in vm.getUserAccounts()">{{userAccount.username}}</md-option>-->
-        <!--</md-select>-->
+        <md-select placeholder="Selecione o usuário" ng-model="vm.comment.userAccount"
+                   md-on-open="vm.loadUserAccounts()" style="min-width: 200px;">
+            <md-option ng-value="userAccount" ng-repeat="userAccount in vm.getUserAccounts()">
+                {{userAccount.login}}
+            </md-option>
+        </md-select>
         <div layout layout-sm="column">
             <md-input-container flex="100">
                 <label>Descrição do comentário</label>

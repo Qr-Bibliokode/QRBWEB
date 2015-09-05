@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('CommentEditController', ['CommentFactory', '$stateParams', '$state', 'BookFactory', 'MessageFactory', CommentEditController]);
+        .controller('CommentEditController', ['CommentFactory', '$stateParams', '$state', 'UserAccountFactory', 'MessageFactory', CommentEditController]);
 
     /** @ngInject */
-    function CommentEditController(CommentFactory, $stateParams, $state, BookFactory, MessageFactory) {
+    function CommentEditController(CommentFactory, $stateParams, $state, UserAccountFactory, MessageFactory) {
         var vm = this;
 
         vm.comment = '';
@@ -33,12 +33,12 @@
 
         vm.loadComment();
 
-        vm.loadBooks = function () {
-            BookFactory.list();
+        vm.loadUserAccounts = function () {
+            UserAccountFactory.list();
         };
 
-        vm.getBooks = function () {
-            return BookFactory.get();
+        vm.getUserAccounts = function () {
+            return UserAccountFactory.get();
         };
     }
 })

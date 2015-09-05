@@ -27,9 +27,11 @@
         };
 
         vm.remove = function (id) {
-            AuthorFactory.remove(id);
-            MessageFactory.show('success','Author deletado com sucesso.')
-
+            AuthorFactory.remove(id).then(function () {
+                MessageFactory.success('Author deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este autor');
+            });
         };
 
         vm.onorderchange = function () {

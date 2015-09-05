@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('HolidayListController', ['HolidayFactory', '$scope', HolidayListController]);
+        .controller('HolidayListController', ['HolidayFactory', '$scope', 'MessageFactory', HolidayListController]);
 
     /** @ngInject */
-    function HolidayListController(HolidayFactory, $scope) {
+    function HolidayListController(HolidayFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            HolidayFactory.remove(id);
+            HolidayFactory.remove(id).then(function () {
+                MessageFactory.success('Feriado deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este feriado');
+            });
         };
 
         vm.onorderchange = function () {

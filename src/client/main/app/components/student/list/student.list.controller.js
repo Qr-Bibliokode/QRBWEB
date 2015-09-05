@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('StudentListController', ['StudentFactory', '$scope', StudentListController]);
+        .controller('StudentListController', ['StudentFactory', '$scope', 'MessageFactory', StudentListController]);
 
     /** @ngInject */
-    function StudentListController(StudentFactory, $scope) {
+    function StudentListController(StudentFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            StudentFactory.remove(id);
+            StudentFactory.remove(id).then(function () {
+                MessageFactory.success('Estudante deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este estudante');
+            });
         };
 
         vm.onorderchange = function () {

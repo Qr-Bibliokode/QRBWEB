@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('UserAccountListController', ['UserAccountFactory', '$scope', UserAccountListController]);
+        .controller('UserAccountListController', ['UserAccountFactory', '$scope', 'MessageFactory', UserAccountListController]);
 
     /** @ngInject */
-    function UserAccountListController(UserAccountFactory, $scope) {
+    function UserAccountListController(UserAccountFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            UserAccountFactory.remove(id);
+            UserAccountFactory.remove(id).then(function () {
+                MessageFactory.success('Conta deletada com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este autor');
+            });
         };
 
         vm.onorderchange = function () {

@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('BookListController', ['BookFactory', '$scope', BookListController]);
+        .controller('BookListController', ['BookFactory', '$scope', 'MessageFactory', BookListController]);
 
     /** @ngInject */
-    function BookListController(BookFactory, $scope) {
+    function BookListController(BookFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            BookFactory.remove(id);
+            BookFactory.remove(id).then(function () {
+                MessageFactory.success('Livro deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este autor');
+            });
         };
 
         vm.onorderchange = function () {

@@ -28,8 +28,8 @@
                     d.resolve(response);
                     list();
                 },
-                function (data) {
-                    d.reject(data);
+                function () {
+                    d.reject();
                 });
             return d.promise;
         }

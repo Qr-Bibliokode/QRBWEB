@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('CategoryListController', ['CategoryFactory', '$scope', CategoryListController]);
+        .controller('CategoryListController', ['CategoryFactory', '$scope', 'MessageFactory', CategoryListController]);
 
     /** @ngInject */
-    function CategoryListController(CategoryFactory, $scope) {
+    function CategoryListController(CategoryFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            CategoryFactory.remove(id);
+            CategoryFactory.remove(id).then(function () {
+                MessageFactory.success('Categoria deletada com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar esta categoria');
+            });
         };
 
         vm.onorderchange = function () {

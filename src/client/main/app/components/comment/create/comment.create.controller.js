@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('CommentCreateController', ['CommentFactory', 'MessageFactory', CommentCreateController]);
+        .controller('CommentCreateController', ['CommentFactory', 'MessageFactory', 'UserAccountFactory', CommentCreateController]);
 
     /** @ngInject */
-    function CommentCreateController(CommentFactory, MessageFactory) {
+    function CommentCreateController(CommentFactory, MessageFactory, UserAccountFactory) {
         var vm = this;
 
         vm.create = function () {
@@ -20,6 +20,14 @@
 
         vm.clear = function () {
             vm.comment = '';
+        };
+
+        vm.loadUserAccounts = function () {
+            UserAccountFactory.list();
+        };
+
+        vm.getUserAccounts = function () {
+            return UserAccountFactory.get();
         };
     }
 })();

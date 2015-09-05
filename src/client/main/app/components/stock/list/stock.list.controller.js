@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('StockListController', ['StockFactory', '$scope', StockListController]);
+        .controller('StockListController', ['StockFactory', '$scope', 'MessageFactory', StockListController]);
 
     /** @ngInject */
-    function StockListController(StockFactory, $scope) {
+    function StockListController(StockFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            StockFactory.remove(id);
+            StockFactory.remove(id).then(function () {
+                MessageFactory.success('Stock deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este stock');
+            });
         };
 
         vm.onorderchange = function () {

@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('CommentListController', ['CommentFactory', '$scope', CommentListController]);
+        .controller('CommentListController', ['CommentFactory', '$scope', 'MessageFactory', CommentListController]);
 
     /** @ngInject */
-    function CommentListController(CommentFactory, $scope) {
+    function CommentListController(CommentFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            CommentFactory.remove(id);
+            CommentFactory.remove(id).then(function () {
+                MessageFactory.success('Comentário deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este comentário');
+            });
         };
 
         vm.onorderchange = function () {

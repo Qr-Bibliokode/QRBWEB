@@ -17,7 +17,7 @@
 
         return {
             error: function (msg) {
-                showError('error' + msg)
+                showMessage('error', msg)
             },
             success: function (msg) {
                 showMessage('success', msg)

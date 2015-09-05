@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('EmployeeListController', ['EmployeeFactory', '$scope', EmployeeListController]);
+        .controller('EmployeeListController', ['EmployeeFactory', '$scope', 'MessageFactory', EmployeeListController]);
 
     /** @ngInject */
-    function EmployeeListController(EmployeeFactory, $scope) {
+    function EmployeeListController(EmployeeFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -27,7 +27,11 @@
         };
 
         vm.remove = function (id) {
-            EmployeeFactory.remove(id);
+            EmployeeFactory.remove(id).then(function () {
+                MessageFactory.success('Empregado deletado com sucesso.');
+            }, function () {
+                MessageFactory.error('Não é possível deletar este empregado');
+            });
         };
 
         vm.onorderchange = function () {
