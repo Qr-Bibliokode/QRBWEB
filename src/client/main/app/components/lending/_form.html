@@ -1,21 +1,17 @@
 <md-card>
     <md-card-content>
-        <div layout layout-sm="column">
-            <md-input-container flex="100">
-                <label>Descrição da data</label>
-                <input md-maxlength="50" ng-model="vm.lending.description">
-            </md-input-container>
-        </div>
-        <div layout layout-sm="column">
-            <md-input-container flex="100">
-                <md-datepicker ng-model="vm.lending.startDate"></md-datepicker>
-            </md-input-container>
-        </div>
-        <div layout layout-sm="column">
-            <md-input-container flex="100">
-                <md-datepicker ng-model="vm.lending.finalDate"></md-datepicker>
-            </md-input-container>
-        </div>
+        <md-select placeholder="Selecione o usuário" ng-model="vm.lending.userAccount"
+                   md-on-open="vm.loadUserAccounts()" style="min-width: 200px;">
+            <md-option ng-value="userAccount" ng-repeat="userAccount in vm.getUserAccounts()">
+                {{userAccount.login}}
+            </md-option>
+        </md-select>
+
+        <md-select placeholder="Selecione o livro" ng-model="vm.lending.book" md-on-open="vm.loadBooks()"
+                   style="min-width: 200px;">
+            <md-option ng-value="book" ng-repeat="book in vm.getBooks()">{{book.title}}</md-option>
+        </md-select>
+
     </md-card-content>
     <md-card-footer>
         <md-button>Salvar</md-button>
