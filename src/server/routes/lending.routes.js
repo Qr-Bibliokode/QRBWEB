@@ -46,7 +46,7 @@ module.exports = [
         method: 'POST',
         path: '/lendings/',
         handler: function (request, reply) {
-            swagger.lending.create({lending: request.payload}, function (response) {
+            swagger.lending.lend({lending: request.payload}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')

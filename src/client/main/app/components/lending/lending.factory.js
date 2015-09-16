@@ -34,7 +34,7 @@
             return d.promise;
         }
 
-        function create(lending) {
+        function lend(lending) {
             var d = $q.defer();
             $http.post(url, lending).then(function (response, $q) {
                     d.resolve(response);
@@ -74,7 +74,7 @@
         return {
             list: list,
             remove: remove,
-            create: create,
+            lend: lend,
             get: get,
             getById: getById,
             update: update

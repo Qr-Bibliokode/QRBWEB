@@ -12,12 +12,12 @@
                 url: '/lending',
                 templateUrl: 'app/components/lending/lending.tabs.html'
             })
-            .state('lendingCreate', {
+            .state('lendingLend', {
                 parent: 'lending',
                 views: {
                     "tabLending": {
-                        templateUrl: 'app/components/lending/create/lending.create.html',
-                        controller: 'LendingCreateController',
+                        templateUrl: 'app/components/lending/lend/lending.lend.html',
+                        controller: 'LendingLendController',
                         controllerAs: 'vm'
                     }
                 },

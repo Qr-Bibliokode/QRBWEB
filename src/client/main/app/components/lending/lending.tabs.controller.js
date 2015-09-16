@@ -14,7 +14,7 @@
                     $state.transitionTo('lendingList');
                     break;
                 case 1:
-                    $state.transitionTo('lendingCreate');
+                    $state.transitionTo('lendingLend');
                     break;
             }
         });

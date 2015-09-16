@@ -3,14 +3,14 @@
 
     angular
         .module('qrbweb')
-        .controller('LendingCreateController', ['LendingFactory', 'MessageFactory', 'BookFactory', 'UserAccountFactory', LendingCreateController]);
+        .controller('LendingLendController', ['LendingFactory', 'MessageFactory', 'BookFactory', 'UserAccountFactory', LendingLendController]);
 
     /** @ngInject */
-    function LendingCreateController(LendingFactory, MessageFactory, BookFactory, UserAccountFactory) {
+    function LendingLendController(LendingFactory, MessageFactory, BookFactory, UserAccountFactory) {
         var vm = this;
 
-        vm.create = function () {
-            LendingFactory.create(vm.lending).then(function () {
+        vm.lend = function () {
+            LendingFactory.lend(vm.lending).then(function () {
                 MessageFactory.success('Empréstimo ' + vm.lending.id + ' realizado com sucesso.');
                 vm.clear();
             }, function (response) {
