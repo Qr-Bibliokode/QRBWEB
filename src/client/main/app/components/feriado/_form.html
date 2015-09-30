@@ -1,0 +1,19 @@
+<md-card>
+    <md-card-content>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Descrição da data</label>
+                <input md-maxlength="50" ng-model="vm.feriado.descricao">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-datepicker ng-model="vm.feriado.dataInicio"></md-datepicker>
+        </div>
+        <div layout layout-sm="column">
+            <md-datepicker ng-model="vm.feriado.dataFim"></md-datepicker>
+        </div>
+    </md-card-content>
+    <md-card-footer>
+        <md-button>Salvar</md-button>
+    </md-card-footer>
+</md-card>

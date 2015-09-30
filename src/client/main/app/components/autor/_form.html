@@ -1,0 +1,19 @@
+<md-card>
+    <md-card-content>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Nome do autor</label>
+                <input md-maxlength="50" ng-model="vm.autor.nome">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Anotações (Referências, contato, e-mail, telefone...)</label>
+                <input ng-model="vm.autor.informacoesAdicionais"/>
+            </md-input-container>
+        </div>
+    </md-card-content>
+    <md-card-footer>
+        <md-button>Salvar</md-button>
+    </md-card-footer>
+</md-card>

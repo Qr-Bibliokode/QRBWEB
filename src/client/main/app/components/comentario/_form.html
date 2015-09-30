@@ -1,0 +1,32 @@
+<md-card>
+    <md-card-content>
+        <md-select placeholder="Selecione o usuário" ng-model="vm.comentario.contaUsuario"
+                   md-on-open="vm.loadContaUsuarios()" style="min-width: 200px;">
+            <md-option ng-value="contaUsuario" ng-repeat="contaUsuario in vm.getContaUsuarios()">
+                {{contaUsuario.login}}
+            </md-option>
+        </md-select>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Avaliação</label>
+                <input md-maxlength="50" ng-model="vm.comentario.avaliacao">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Descrição do comentário</label>
+                <input md-maxlength="50" ng-model="vm.comentario.descricao">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <label>Recomendar livro ?</label>
+            <md-radio-group ng-model="vm.comentario.recomendacao">
+                <md-radio-button value="true">Sim</md-radio-button>
+                <md-radio-button value="false">Não</md-radio-button>
+            </md-radio-group>
+        </div>
+    </md-card-content>
+    <md-card-footer>
+        <md-button>Salvar</md-button>
+    </md-card-footer>
+</md-card>

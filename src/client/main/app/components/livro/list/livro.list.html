@@ -1,0 +1,53 @@
+<md-card>
+    <md-data-table-toolbar class="alternate" ng-show="vm.selected.length">
+        <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items selecionados' : 'item selecionado'}}</div>
+    </md-data-table-toolbar>
+
+    <md-data-table-container>
+        <table md-data-table md-row-select="vm.selected" md-progress="vm.init" class="table-condensed">
+            <thead md-order="query.order" md-trigger="vm.onorderchange">
+            <tr>
+                <th order-by="isbn" name="ISBN"></th>
+                <th order-by="title" name="Título"></th>
+                <th order-by="synopsis" name="Sinopsis"></th>
+                <th order-by="pages" name="Páginas"></th>
+                <th order-by="idioma" name="Idioma"></th>
+                <th order-by="categoria" name="Categoria"></th>
+                <th order-by="autores" name="Autoria"></th>
+                <th order-by="comentarios" name="Comentários"></th>
+                <th name="Operações"></th>
+            </tr>
+            </thead>
+            <tbody md-auto-select>
+            <tr ng-repeat="livro in vm.getLivros() | orderBy: query.order | filter: skip | limitTo: query.limit">
+                <td>{{livro.isbn}}</td>
+                <td>{{livro.titulo}}</td>
+                <td>{{livro.sinopse}}</td>
+                <td>{{livro.paginas}}</td>
+                <td>{{livro.idioma}}</td>
+                <td>{{livro.categoria}}</td>
+                <td>{{livro.autores}}</td>
+                <td>{{livro.comentarios.length}}</td>
+                <td>
+                    <md-button ng-click="vm.edit(livro)" class="md-icon-button md-sheet">
+                        <a class="btn btn-primary" btn-primary ui-sref="livroEdit(livro)">
+                            <md-tooltip>Editar</md-tooltip>
+                            <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>
+                        </a>
+                    </md-button>
+
+                    <md-button ng-click="vm.remove(livro.id)" class="md-icon-button md-sheet">
+                        <md-tooltip>Remover</md-tooltip>
+                        <md-icon md-font-icon="mdi mdi-delete md-18"></md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+
+    <md-data-table-pagination md-limit="query.limit"
+                              md-page="query.page"
+                              md-total="{{vm.total}}"
+                              md-trigger="onpagechange"></md-data-table-pagination>
+</md-card>

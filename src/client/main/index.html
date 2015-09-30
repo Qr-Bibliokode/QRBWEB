@@ -20,17 +20,17 @@
         </div>
     </md-toolbar>
     <md-content layout-padding style="padding: 24px;">
-        <md-button href="#/author/listagem" class="md-raised md-primary">CRUD Author</md-button>
-        <md-button href="#/book/listagem" class="md-raised md-primary">CRUD Book</md-button>
-        <md-button href="#/category/listagem" class="md-raised md-primary">CRUD Category</md-button>
-        <md-button href="#/comment/listagem" class="md-raised md-primary">CRUD Comment</md-button>
-        <md-button href="#/employee/listagem" class="md-raised md-primary">CRUD Employee</md-button>
-        <md-button href="#/holiday/listagem" class="md-raised md-primary">CRUD Holiday</md-button>
-        <md-button href="#/idiom/listagem" class="md-raised md-primary">CRUD Idiom</md-button>
-        <md-button href="#/lending/listagem" class="md-raised md-primary">CRUD Lending</md-button>
+        <md-button href="#/autor/listagem" class="md-raised md-primary">CRUD Autor</md-button>
+        <md-button href="#/livro/listagem" class="md-raised md-primary">CRUD Livro</md-button>
+        <md-button href="#/categoria/listagem" class="md-raised md-primary">CRUD Categoria</md-button>
+        <md-button href="#/comentario/listagem" class="md-raised md-primary">CRUD Comentario</md-button>
+        <md-button href="#/empregado/listagem" class="md-raised md-primary">CRUD Empregado</md-button>
+        <md-button href="#/feriado/listagem" class="md-raised md-primary">CRUD Feriado</md-button>
+        <md-button href="#/idioma/listagem" class="md-raised md-primary">CRUD Idioma</md-button>
+        <md-button href="#/emprestimo/listagem" class="md-raised md-primary">CRUD Emprestimo</md-button>
         <md-button href="#/stock/listagem" class="md-raised md-primary">CRUD Stock</md-button>
-        <md-button href="#/student/listagem" class="md-raised md-primary">CRUD Student</md-button>
-        <md-button href="#/userAccount/listagem" class="md-raised md-primary">CRUD UserAccount</md-button>
+        <md-button href="#/estudante/listagem" class="md-raised md-primary">CRUD Estudante</md-button>
+        <md-button href="#/contaUsuario/listagem" class="md-raised md-primary">CRUD ContaUsuario</md-button>
         <div ui-view></div>
     </md-content>
 </div>
@@ -45,54 +45,54 @@
 <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
 <script type="text/javascript" src="/app/index.module.js"></script>
-<script type="text/javascript" src="/app/components/author/author.factory.js"></script>
-<script type="text/javascript" src="/app/components/author/author.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/author/list/author.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/author/create/author.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/author/edit/author.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/author/author.route.js"></script>
+<script type="text/javascript" src="/app/components/autor/autor.factory.js"></script>
+<script type="text/javascript" src="/app/components/autor/autor.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/autor/list/autor.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/autor/create/autor.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/autor/edit/autor.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/autor/autor.route.js"></script>
 
-<script type="text/javascript" src="/app/components/category/category.factory.js"></script>
-<script type="text/javascript" src="/app/components/category/category.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/category/list/category.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/category/create/category.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/category/edit/category.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/category/category.route.js"></script>
+<script type="text/javascript" src="/app/components/categoria/categoria.factory.js"></script>
+<script type="text/javascript" src="/app/components/categoria/categoria.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/categoria/list/categoria.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/categoria/create/categoria.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/categoria/edit/categoria.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/categoria/categoria.route.js"></script>
 
-<script type="text/javascript" src="/app/components/idiom/idiom.factory.js"></script>
-<script type="text/javascript" src="/app/components/idiom/idiom.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/idiom/list/idiom.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/idiom/create/idiom.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/idiom/edit/idiom.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/idiom/idiom.route.js"></script>
+<script type="text/javascript" src="/app/components/idioma/idioma.factory.js"></script>
+<script type="text/javascript" src="/app/components/idioma/idioma.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/idioma/list/idioma.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/idioma/create/idioma.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/idioma/edit/idioma.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/idioma/idioma.route.js"></script>
 
-<script type="text/javascript" src="/app/components/book/book.factory.js"></script>
-<script type="text/javascript" src="/app/components/book/book.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/book/list/book.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/book/create/book.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/book/edit/book.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/book/book.route.js"></script>
+<script type="text/javascript" src="/app/components/livro/livro.factory.js"></script>
+<script type="text/javascript" src="/app/components/livro/livro.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/livro/list/livro.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/livro/create/livro.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/livro/edit/livro.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/livro/livro.route.js"></script>
 
-<script type="text/javascript" src="/app/components/comment/comment.factory.js"></script>
-<script type="text/javascript" src="/app/components/comment/comment.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/comment/list/comment.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/comment/create/comment.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/comment/edit/comment.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/comment/comment.route.js"></script>
+<script type="text/javascript" src="/app/components/comentario/comentario.factory.js"></script>
+<script type="text/javascript" src="/app/components/comentario/comentario.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/comentario/list/comentario.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/comentario/create/comentario.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/comentario/edit/comentario.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/comentario/comentario.route.js"></script>
 
-<script type="text/javascript" src="/app/components/employee/employee.factory.js"></script>
-<script type="text/javascript" src="/app/components/employee/employee.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/employee/list/employee.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/employee/create/employee.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/employee/edit/employee.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/employee/employee.route.js"></script>
+<script type="text/javascript" src="/app/components/empregado/empregado.factory.js"></script>
+<script type="text/javascript" src="/app/components/empregado/empregado.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/empregado/list/empregado.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/empregado/create/empregado.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/empregado/edit/empregado.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/empregado/empregado.route.js"></script>
 
-<script type="text/javascript" src="/app/components/holiday/holiday.factory.js"></script>
-<script type="text/javascript" src="/app/components/holiday/holiday.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/holiday/list/holiday.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/holiday/create/holiday.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/holiday/edit/holiday.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/holiday/holiday.route.js"></script>
+<script type="text/javascript" src="/app/components/feriado/feriado.factory.js"></script>
+<script type="text/javascript" src="/app/components/feriado/feriado.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/feriado/list/feriado.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/feriado/create/feriado.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/feriado/edit/feriado.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/feriado/feriado.route.js"></script>
 
 <script type="text/javascript" src="/app/components/stock/stock.factory.js"></script>
 <script type="text/javascript" src="/app/components/stock/stock.tabs.controller.js"></script>
@@ -101,26 +101,26 @@
 <script type="text/javascript" src="/app/components/stock/edit/stock.edit.controller.js"></script>
 <script type="text/javascript" src="/app/components/stock/stock.route.js"></script>
 
-<script type="text/javascript" src="/app/components/student/student.factory.js"></script>
-<script type="text/javascript" src="/app/components/student/student.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/student/list/student.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/student/create/student.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/student/edit/student.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/student/student.route.js"></script>
+<script type="text/javascript" src="/app/components/estudante/estudante.factory.js"></script>
+<script type="text/javascript" src="/app/components/estudante/estudante.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/estudante/list/estudante.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/estudante/create/estudante.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/estudante/edit/estudante.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/estudante/estudante.route.js"></script>
 
-<script type="text/javascript" src="/app/components/lending/lending.factory.js"></script>
-<script type="text/javascript" src="/app/components/lending/lending.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/lending/list/lending.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/lending/lend/lending.lend.controller.js"></script>
-<script type="text/javascript" src="/app/components/lending/edit/lending.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/lending/lending.route.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/emprestimo.factory.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/emprestimo.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/list/emprestimo.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/lend/emprestimo.lend.controller.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/edit/emprestimo.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/emprestimo/emprestimo.route.js"></script>
 
-<script type="text/javascript" src="/app/components/userAccount/userAccount.factory.js"></script>
-<script type="text/javascript" src="/app/components/userAccount/userAccount.controller.js"></script>
-<script type="text/javascript" src="/app/components/userAccount/list/userAccount.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/userAccount/create/userAccount.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/userAccount/edit/userAccount.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/userAccount/userAccount.route.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/contaUsuario.factory.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/contaUsuario.controller.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/list/contaUsuario.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/create/contaUsuario.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/edit/contaUsuario.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/contaUsuario/contaUsuario.route.js"></script>
 
 <script type="text/javascript" src="/app/factories/message/message.factory.js"></script>
 </html>

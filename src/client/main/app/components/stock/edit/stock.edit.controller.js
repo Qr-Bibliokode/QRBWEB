@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('StockEditController', ['StockFactory', '$stateParams', '$state', 'MessageFactory', 'BookFactory', StockEditController]);
+        .controller('StockEditController', ['StockFactory', '$stateParams', '$state', 'MessageFactory', 'LivroFactory', StockEditController]);
 
     /** @ngInject */
-    function StockEditController(StockFactory, $stateParams, $state, MessageFactory, BookFactory) {
+    function StockEditController(StockFactory, $stateParams, $state, MessageFactory, LivroFactory) {
         var vm = this;
 
         vm.stock = '';
@@ -31,12 +31,12 @@
             vm.stock = '';
         };
 
-        vm.loadBooks = function () {
-            BookFactory.list();
+        vm.loadLivros = function () {
+            LivroFactory.list();
         };
 
-        vm.getBooks = function () {
-            return BookFactory.get();
+        vm.getLivros = function () {
+            return LivroFactory.get();
         };
 
         vm.loadStock();

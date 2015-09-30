@@ -1,0 +1,44 @@
+<md-card>
+    <md-card-content>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>ISB</label>
+                <input md-maxlength="17" ng-model="vm.livro.isbn">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Título do livro</label>
+                <input md-maxlength="254" ng-model="vm.livro.titulo">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Sinopsis</label>
+                <input md-maxlength="5000" ng-model="vm.livro.sinopse">
+            </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+            <md-input-container flex="100">
+                <label>Páginas</label>
+                <input md-maxlength="9999" ng-model="vm.livro.paginas">
+            </md-input-container>
+        </div>
+
+        <md-select placeholder="Selecione um idiomaa" ng-model="vm.livro.idioma" md-on-open="vm.loadIdiomas()" style="min-width: 200px;">
+            <md-option ng-value="idioma" ng-repeat="idioma in vm.getIdiomas()">{{idioma.descricao}}</md-option>
+        </md-select>
+
+        <md-select placeholder="Selecione uma categoria" ng-model="vm.livro.categoria" md-on-open="vm.loadCategories()" style="min-width: 200px;">
+            <md-option ng-value="categoria" ng-repeat="categoria in vm.getCategories()">{{categoria.descricao}}</md-option>
+        </md-select>
+
+        <md-select placeholder="Selecione um autor" ng-model="vm.livro.autores" md-on-open="vm.loadAutores()" style="min-width: 200px;" multiple="true">
+            <md-option ng-value="autor" ng-repeat="autor in vm.getAutors()">{{autor.nome}}</md-option>
+        </md-select>
+
+    </md-card-content>
+    <md-card-footer>
+        <md-button>Salvar</md-button>
+    </md-card-footer>
+</md-card>

@@ -1,13 +1,25 @@
-var author = require('./author.routes');
-var book = require('./book.routes');
-var category = require('./category.routes');
-var comment = require('./comment.routes');
-var employee = require('./employee.routes');
-var holiday = require('./holiday.routes');
-var idiom = require('./idiom.routes');
+var autor = require('./autor.routes');
+var categoria = require('./categoria.routes');
+var comentario = require('./comentario.routes');
+var contaUsuario = require('./contaUsuario.routes');
+var empregado = require('./empregado.routes');
+var emprestimo = require('./emprestimo.routes');
+var estudante = require('./estudante.routes');
+var feriado = require('./feriado.routes');
+var idiomaa = require('./idioma.routes');
+var livro = require('./livro.routes');
 var stock = require('./stock.routes');
-var student = require('./student.routes');
-var lending = require('./lending.routes');
-var userAccount = require('./userAccount.routes');
 
-module.exports = [].concat(author, book, category, comment, employee, holiday, idiom, stock, student, userAccount, lending);
+module.exports = [].concat(
+    autor,
+    categoria,
+    comentario,
+    contaUsuario,
+    empregado,
+    emprestimo,
+    estudante,
+    feriado,
+    idiomaa,
+    livro,
+    stock
+);

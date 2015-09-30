@@ -45,5 +45,5 @@ server.route({
 });
 
 server.start(function () {
-    console.log('Running server at ', server.info.uri);
+    console.log('Servidor rodando em ', server.info.uri);
 });
