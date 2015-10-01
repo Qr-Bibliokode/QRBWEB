@@ -13,7 +13,7 @@
 
         vm.update = function () {
             AutorFactory.update(vm.autor).then(function () {
-                MessageFactory.success('Autor ' + vm.autor.name + ' salvo com sucesso.');
+                MessageFactory.success('Autor ' + vm.autor.nome + ' salvo com sucesso.');
                 vm.clear();
                 $state.transitionTo('autorList');
             }, function (response) {

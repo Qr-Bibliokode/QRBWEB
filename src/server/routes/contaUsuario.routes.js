@@ -44,7 +44,7 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/contaUsuario/',
+        path: '/contaUsuarios/',
         handler: function (request, reply) {
             swagger.contaUsuario.create({contaUsuario: request.payload}, function (response) {
                 reply(response.data).type('application/json')

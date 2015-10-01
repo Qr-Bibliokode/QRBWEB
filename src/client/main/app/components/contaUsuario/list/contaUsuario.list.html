@@ -7,19 +7,19 @@
         <table md-data-table md-row-select="vm.selected" md-progress="vm.init" class="table-condensed">
             <thead md-order="query.order" md-trigger="vm.onorderchange">
             <tr>
-                <th order-by="enrollment" name="Matrícula"></th>
-                <th order-by="name" name="Nome"></th>
+                <th order-by="matricula" name="Matrícula"></th>
+                <th order-by="nome" name="Nome"></th>
                 <th order-by="email" name="E-mail"></th>
-                <th order-by="phone" name="Telefone"></th>
+                <th order-by="celular" name="Telefone"></th>
                 <th name="Operações"></th>
             </tr>
             </thead>
             <tbody md-auto-select>
             <tr ng-repeat="contaUsuario in vm.getContaUsuarios() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{contaUsuario.enrollment}}</td>
-                <td>{{contaUsuario.name}}</td>
+                <td>{{contaUsuario.matricula}}</td>
+                <td>{{contaUsuario.nome}}</td>
                 <td>{{contaUsuario.email}}</td>
-                <td>{{contaUsuario.phone}}</td>
+                <td>{{contaUsuario.celular}}</td>
                 <td>
                     <md-button ng-click="vm.edit(contaUsuario)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="contaUsuarioEdit(contaUsuario)">

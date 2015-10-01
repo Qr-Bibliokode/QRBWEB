@@ -11,7 +11,6 @@
         var contaUsuarios = [];
 
         function list() {
-            debugger;
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
                     d.resolve(response);

@@ -11,7 +11,7 @@
 
         vm.create = function () {
             AutorFactory.create(vm.autor).then(function () {
-                MessageFactory.success('Autor ' + vm.autor.name + ' salvo com sucesso.');
+                MessageFactory.success('Autor ' + vm.autor.nome + ' salvo com sucesso.');
                 vm.clear();
             }, function (response) {
                 MessageFactory.grailsError(response.data);

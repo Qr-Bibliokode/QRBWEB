@@ -13,7 +13,7 @@
 
         $scope.query = {
             filter: '',
-            order: 'name',
+            order: 'nome',
             limit: 10,
             page: 10
         };
