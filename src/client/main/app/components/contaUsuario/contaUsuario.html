@@ -5,7 +5,7 @@
                 <md-content class="md-padding">
                     <h1 class="md-display-2">Escolha o tipo de usuário</h1>
                     <md-radio-group ng-model="vm.type" ng-click="vm.seguinte()">
-                        <md-radio-button value="empregado" class="md-primary">Empregado</md-radio-button>
+                        <md-radio-button value="funcionario" class="md-primary">Funcionario</md-radio-button>
                         <md-radio-button value="estudante">Estudante</md-radio-button>
                     </md-radio-group>
                 </md-content>
@@ -14,9 +14,9 @@
                 <md-content class="md-padding">
                     <h1 class="md-display-2">Usuário escolhido: {{vm.type}}</h1>
 
-                    <div ng-if="vm.type=='empregado'">
-                        <form class="form-horizontal" role="form" ng-submit="vm.createEmpregado()">
-                            <div ng-include="'/app/components/empregado/_form.html'"></div>
+                    <div ng-if="vm.type=='funcionario'">
+                        <form class="form-horizontal" role="form" ng-submit="vm.createFuncionario()">
+                            <div ng-include="'/app/components/funcionario/_form.html'"></div>
                         </form>
                     </div>
                     <div ng-if="vm.type=='estudante'">

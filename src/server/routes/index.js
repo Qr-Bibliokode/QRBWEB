@@ -2,7 +2,7 @@ var autor = require('./autor.routes');
 var categoria = require('./categoria.routes');
 var comentario = require('./comentario.routes');
 var contaUsuario = require('./contaUsuario.routes');
-var empregado = require('./empregado.routes');
+var funcionario = require('./funcionario.routes');
 var emprestimo = require('./emprestimo.routes');
 var estudante = require('./estudante.routes');
 var feriado = require('./feriado.routes');
@@ -15,7 +15,7 @@ module.exports = [].concat(
     categoria,
     comentario,
     contaUsuario,
-    empregado,
+    funcionario,
     emprestimo,
     estudante,
     feriado,

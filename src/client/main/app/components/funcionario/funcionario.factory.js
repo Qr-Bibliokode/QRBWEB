@@ -3,18 +3,18 @@
 
     angular
         .module('qrbweb')
-        .factory('EmpregadoFactory', ['$http', '$q', EmpregadoFactory]);
+        .factory('FuncionarioFactory', ['$http', '$q', FuncionarioFactory]);
 
-    function EmpregadoFactory($http, $q) {
+    function FuncionarioFactory($http, $q) {
 
-        var url = "http://localhost:3000/empregados/";
-        var empregados = [];
+        var url = "http://localhost:3000/funcionarios/";
+        var funcionarios = [];
 
         function list() {
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
                     d.resolve(response);
-                    empregados = response.data;
+                    funcionarios = response.data;
                 },
                 function (data) {
                     d.reject(data);
@@ -34,9 +34,9 @@
             return d.promise;
         }
 
-        function create(empregado) {
+        function create(funcionario) {
             var d = $q.defer();
-            $http.post(url, empregado).then(function (response, $q) {
+            $http.post(url, funcionario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -45,9 +45,9 @@
             return d.promise;
         }
 
-        function update(empregado) {
+        function update(funcionario) {
             var d = $q.defer();
-            $http.put(url + empregado.id, empregado).then(function (response, $q) {
+            $http.put(url + funcionario.id, funcionario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -68,7 +68,7 @@
         }
 
         function get() {
-            return empregados;
+            return funcionarios;
         }
 
         return {

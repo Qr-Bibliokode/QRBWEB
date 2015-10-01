@@ -11,9 +11,9 @@ var swagger = new client({
 module.exports = [
     {
         method: 'GET',
-        path: '/empregados/',
+        path: '/funcionarios/',
         handler: function (request, reply) {
-            swagger.empregado.list({max: 10, offset: 0}, function (response) {
+            swagger.funcionario.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -22,9 +22,9 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/empregados/{empregadoId}',
+        path: '/funcionarios/{funcionarioId}',
         handler: function (request, reply) {
-            swagger.empregado.getById({empregadoId: request.params.empregadoId}, function (response) {
+            swagger.funcionario.getById({funcionarioId: request.params.funcionarioId}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -33,9 +33,9 @@ module.exports = [
     },
     {
         method: 'DELETE',
-        path: '/empregados/{id}',
+        path: '/funcionarios/{id}',
         handler: function (request, reply) {
-            swagger.empregado.delete({empregadoId: request.params.id}, function (response) {
+            swagger.funcionario.delete({funcionarioId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -44,9 +44,9 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/empregados/',
+        path: '/funcionarios/',
         handler: function (request, reply) {
-            swagger.empregado.create({empregado: request.payload}, function (response) {
+            swagger.funcionario.create({funcionario: request.payload}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -55,9 +55,9 @@ module.exports = [
     },
     {
         method: 'PUT',
-        path: '/empregados/{id}',
+        path: '/funcionarios/{id}',
         handler: function (request, reply) {
-            swagger.empregado.update({empregado: request.payload, empregadoId: request.params.id}, function (response) {
+            swagger.funcionario.update({funcionario: request.payload, funcionarioId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')

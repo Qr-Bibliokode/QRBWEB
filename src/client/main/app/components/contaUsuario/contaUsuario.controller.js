@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('qrbweb')
-        .controller('ContaUsuarioController', ['EstudanteFactory', 'EmpregadoFactory', 'MessageFactory', 'ContaUsuarioFactory', ContaUsuarioController]);
+        .controller('ContaUsuarioController', ['EstudanteFactory', 'FuncionarioFactory', 'MessageFactory', 'ContaUsuarioFactory', ContaUsuarioController]);
 
-    function ContaUsuarioController(EstudanteFactory, EmpregadoFactory, MessageFactory, ContaUsuarioFactory) {
+    function ContaUsuarioController(EstudanteFactory, FuncionarioFactory, MessageFactory, ContaUsuarioFactory) {
         var vm = this;
         vm.title = 'Página ContaUsuario';
 
@@ -19,17 +19,17 @@
             });
         };
 
-        vm.createEmpregado = function () {
-            EmpregadoFactory.create(vm.empregado).then(function (response) {
-                vm.empregado.id = response.data.id;
-                MessageFactory.success('Inserido estudante ' + vm.empregado.name + ' ID:' + vm.empregado.id + 'com sucesso.');
+        vm.createFuncionario = function () {
+            FuncionarioFactory.create(vm.funcionario).then(function (response) {
+                vm.funcionario.id = response.data.id;
+                MessageFactory.success('Inserido estudante ' + vm.funcionario.name + ' ID:' + vm.funcionario.id + 'com sucesso.');
             }, function (response) {
                 MessageFactory.grailsError(response.data);
             });
         };
 
         vm.createAccount = function () {
-            vm.contaUsuario.person = vm.estudante == null ? vm.empregado : vm.estudante;
+            vm.contaUsuario.person = vm.estudante == null ? vm.funcionario : vm.estudante;
             ContaUsuarioFactory.create(vm.contaUsuario).then(function () {
                 MessageFactory.success('Criada conta com sucesso.');
             }, function (response) {

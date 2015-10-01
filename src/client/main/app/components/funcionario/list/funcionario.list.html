@@ -15,20 +15,20 @@
             </tr>
             </thead>
             <tbody md-auto-select>
-            <tr ng-repeat="empregado in vm.getEmpregados() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{empregado.codigo}}</td>
-                <td>{{empregado.nome}}</td>
-                <td>{{empregado.email}}</td>
-                <td>{{empregado.celular}}</td>
+            <tr ng-repeat="funcionario in vm.getFuncionarios() | orderBy: query.order | filter: skip | limitTo: query.limit">
+                <td>{{funcionario.codigo}}</td>
+                <td>{{funcionario.nome}}</td>
+                <td>{{funcionario.email}}</td>
+                <td>{{funcionario.celular}}</td>
                 <td>
-                    <md-button ng-click="vm.edit(empregado)" class="md-icon-button md-sheet">
-                        <a class="btn btn-primary" btn-primary ui-sref="empregadoEdit(empregado)">
+                    <md-button ng-click="vm.edit(funcionario)" class="md-icon-button md-sheet">
+                        <a class="btn btn-primary" btn-primary ui-sref="funcionarioEdit(funcionario)">
                             <md-tooltip>Editar</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>
                         </a>
                     </md-button>
 
-                    <md-button ng-click="vm.remove(empregado.id)" class="md-icon-button md-sheet">
+                    <md-button ng-click="vm.remove(funcionario.id)" class="md-icon-button md-sheet">
                         <md-tooltip>Remover</md-tooltip>
                         <md-icon md-font-icon="mdi mdi-delete md-18"></md-icon>
                     </md-button>

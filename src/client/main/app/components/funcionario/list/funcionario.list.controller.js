@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('EmpregadoListController', ['EmpregadoFactory', '$scope', 'MessageFactory', EmpregadoListController]);
+        .controller('FuncionarioListController', ['FuncionarioFactory', '$scope', 'MessageFactory', FuncionarioListController]);
 
     /** @ngInject */
-    function EmpregadoListController(EmpregadoFactory, $scope, MessageFactory) {
+    function FuncionarioListController(FuncionarioFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -19,18 +19,18 @@
         };
 
         vm.list = function () {
-            return EmpregadoFactory.list();
+            return FuncionarioFactory.list();
         };
 
-        vm.getEmpregados = function () {
-            return EmpregadoFactory.get();
+        vm.getFuncionarios = function () {
+            return FuncionarioFactory.get();
         };
 
         vm.remove = function (id) {
-            EmpregadoFactory.remove(id).then(function () {
-                MessageFactory.success('Empregado deletado com sucesso.');
+            FuncionarioFactory.remove(id).then(function () {
+                MessageFactory.success('Funcionario deletado com sucesso.');
             }, function () {
-                MessageFactory.error('Não é possível deletar este empregado');
+                MessageFactory.error('Não é possível deletar este funcionario');
             });
         };
 

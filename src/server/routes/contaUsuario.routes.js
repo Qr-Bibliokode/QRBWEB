@@ -11,7 +11,7 @@ var swagger = new client({
 module.exports = [
     {
         method: 'GET',
-        path: '/contaUsuario/',
+        path: '/contaUsuarios/',
         handler: function (request, reply) {
             swagger.contaUsuario.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
