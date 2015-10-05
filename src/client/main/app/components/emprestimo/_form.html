@@ -9,7 +9,7 @@
 
         <md-select placeholder="Selecione o livro" ng-model="vm.emprestimo.livro" md-on-open="vm.loadLivros()"
                    style="min-width: 200px;">
-            <md-option ng-value="livro" ng-repeat="livro in vm.getLivros()">{{livro.title}}</md-option>
+            <md-option ng-value="livro" ng-repeat="livro in vm.getLivros()">{{livro.titulo}}</md-option>
         </md-select>
 
     </md-card-content>

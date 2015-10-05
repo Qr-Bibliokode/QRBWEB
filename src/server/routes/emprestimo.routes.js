@@ -46,7 +46,7 @@ module.exports = [
         method: 'POST',
         path: '/emprestimos/',
         handler: function (request, reply) {
-            swagger.emprestimo.lend({emprestimo: request.payload}, function (response) {
+            swagger.emprestimo.emprestar({emprestimo: request.payload}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')

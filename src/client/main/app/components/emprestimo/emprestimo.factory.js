@@ -34,9 +34,20 @@
             return d.promise;
         }
 
-        function lend(emprestimo) {
+        function emprestar(emprestimo) {
             var d = $q.defer();
             $http.post(url, emprestimo).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
+        function devolver(emprestimo) {
+            var d = $q.defer();
+            $http.post(url + "devolver/", emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -74,7 +85,7 @@
         return {
             list: list,
             remove: remove,
-            lend: lend,
+            emprestar: emprestar,
             get: get,
             getById: getById,
             update: update

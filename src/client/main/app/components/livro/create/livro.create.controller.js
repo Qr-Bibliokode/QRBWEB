@@ -20,7 +20,6 @@
 
         vm.clear = function () {
             vm.livro = '';
-            console.log(vm.livro.autores)
         };
 
         vm.loadAutores = function () {

@@ -9,8 +9,8 @@
     function EmprestimoLendController(EmprestimoFactory, MessageFactory, LivroFactory, ContaUsuarioFactory) {
         var vm = this;
 
-        vm.lend = function () {
-            EmprestimoFactory.lend(vm.emprestimo).then(function () {
+        vm.emprestar = function () {
+            EmprestimoFactory.emprestar(vm.emprestimo).then(function () {
                 MessageFactory.success('Empréstimo ' + vm.emprestimo.id + ' realizado com sucesso.');
                 vm.clear();
             }, function (response) {

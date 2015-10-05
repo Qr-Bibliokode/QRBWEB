@@ -9,10 +9,10 @@
             <tr>
                 <th order-by="contaUsuario" name="Usuário"></th>
                 <th order-by="livro" name="Livro"></th>
-                <th order-by="dateOut" name="Data de locação"></th>
-                <th order-by="dateIn" name="Data de devolução"></th>
+                <th order-by="dateEmprestimo" name="Data de locação"></th>
+                <th order-by="dateDevolucao" name="Data de devolução"></th>
                 <th order-by="returned" name="Devolvido ?"></th>
-                <th order-by="avised" name="Avisado ?"></th>
+                <th order-by="avisado" name="Avisado ?"></th>
                 <th name="Operações"></th>
             </tr>
             </thead>
@@ -20,10 +20,10 @@
             <tr ng-repeat="emprestimo in vm.getEmprestimos() | orderBy: query.order | filter: skip | limitTo: query.limit">
                 <td>{{emprestimo.contaUsuario}}</td>
                 <td>{{emprestimo.livro}}</td>
-                <td>{{emprestimo.dateOut | date}}</td>
-                <td>{{emprestimo.dateIn | date}}</td>
-                <td>{{emprestimo.returned}}</td>
-                <td>{{emprestimo.avised}}</td>
+                <td>{{emprestimo.dateEmprestimo | date}}</td>
+                <td>{{emprestimo.dateDevolucao | date}}</td>
+                <td>{{emprestimo.devolvido}}</td>
+                <td>{{emprestimo.avisado}}</td>
                 <td>
                     <md-button ng-click="vm.edit(emprestimo)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="emprestimoEdit(emprestimo)">

@@ -16,7 +16,7 @@
                 parent: 'emprestimo',
                 views: {
                     "tabEmprestimo": {
-                        templateUrl: 'app/components/emprestimo/lend/emprestimo.lend.html',
+                        templateUrl: 'app/components/emprestimo/emprestar/emprestimo.emprestar.html',
                         controller: 'EmprestimoLendController',
                         controllerAs: 'vm'
                     }
