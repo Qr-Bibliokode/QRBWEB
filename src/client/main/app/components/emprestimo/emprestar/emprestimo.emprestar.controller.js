@@ -11,7 +11,7 @@
 
         vm.emprestar = function () {
             EmprestimoFactory.emprestar(vm.emprestimo).then(function () {
-                MessageFactory.success('Empréstimo ' + vm.emprestimo.id + ' realizado com sucesso.');
+                MessageFactory.success('Empréstimo realizado com sucesso.');
                 vm.clear();
             }, function (response) {
                 MessageFactory.grailsError(response.data);
