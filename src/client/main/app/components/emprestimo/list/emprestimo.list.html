@@ -10,6 +10,7 @@
                 <th order-by="contaUsuario" name="Usuário"></th>
                 <th order-by="livro" name="Livro"></th>
                 <th order-by="dataEmprestimo" name="Data de locação"></th>
+                <th order-by="dataLimiteDevolucao" name="Prazo"></th>
                 <th order-by="dataDevolucao" name="Data de devolução"></th>
                 <th order-by="returned" name="Devolvido ?"></th>
                 <th order-by="avisado" name="Avisado ?"></th>
@@ -21,6 +22,7 @@
                 <td>{{emprestimo.contaUsuario}}</td>
                 <td>{{emprestimo.livro}}</td>
                 <td>{{emprestimo.dataEmprestimo | date}}</td>
+                <td>{{emprestimo.dataLimiteDevolucao | date}}</td>
                 <td>{{emprestimo.dataDevolucao | date}}</td>
                 <td>{{emprestimo.devolvido}}</td>
                 <td>{{emprestimo.avisado}}</td>
