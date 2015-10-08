@@ -44,7 +44,7 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/emprestimos/',
+        path: '/emprestimos/emprestar/',
         handler: function (request, reply) {
             swagger.emprestimo.emprestar({emprestimo: request.payload}, function (response) {
                 reply(response.data).type('application/json')
@@ -58,6 +58,17 @@ module.exports = [
         path: '/emprestimos/{id}',
         handler: function (request, reply) {
             swagger.emprestimo.update({emprestimo: request.payload, emprestimoId: request.params.id}, function (response) {
+                reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
+            });
+        }
+    },
+    {
+        method: 'PUT',
+        path: '/emprestimos/renovar/{id}',
+        handler: function (request, reply) {
+            swagger.emprestimo.renovar({emprestimo: request.payload, emprestimoId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')

@@ -27,6 +27,13 @@
                 <td>{{emprestimo.devolvido}}</td>
                 <td>{{emprestimo.avisado}}</td>
                 <td>
+                    <md-button ng-click="vm.renovar(emprestimo)" class="md-icon-button md-sheet">
+                        <a class="btn btn-primary" btn-primary>
+                            <md-tooltip>Renovar</md-tooltip>
+                            <md-icon md-font-icon="mdi mdi-refresh md-18"></md-icon>
+                        </a>
+                    </md-button>
+
                     <md-button ng-click="vm.edit(emprestimo)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="emprestimoEdit(emprestimo)">
                             <md-tooltip>Editar</md-tooltip>

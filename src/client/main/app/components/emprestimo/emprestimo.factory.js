@@ -36,7 +36,7 @@
 
         function emprestar(emprestimo) {
             var d = $q.defer();
-            $http.post(url, emprestimo).then(function (response, $q) {
+            $http.post(url+"emprestar/", emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -67,6 +67,17 @@
             return d.promise;
         }
 
+        function renovar(emprestimo) {
+            var d = $q.defer();
+            $http.put(url + "renovar/" + emprestimo.id, emprestimo).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         function getById(id) {
             var d = $q.defer();
             $http.get(url + id).then(function (response, $q) {
@@ -86,6 +97,7 @@
             list: list,
             remove: remove,
             emprestar: emprestar,
+            renovar: renovar,
             get: get,
             getById: getById,
             update: update

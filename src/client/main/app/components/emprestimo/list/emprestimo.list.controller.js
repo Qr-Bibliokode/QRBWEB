@@ -34,6 +34,16 @@
             });
         };
 
+
+        vm.renovar = function (emprestimo) {
+            EmprestimoFactory.renovar(emprestimo).then(function () {
+                MessageFactory.success('Empréstimo renovado com sucesso.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
+            });
+        };
+
         vm.onorderchange = function () {
             return vm.list();
         };
