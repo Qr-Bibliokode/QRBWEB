@@ -9,19 +9,19 @@
             <tr>
                 <th order-by="contaUsuario" name="Usuário"></th>
                 <th order-by="dateCreated" name="Data"></th>
-                <th order-by="avaliation" name="Avaliação"></th>
-                <th order-by="description" name="Comentário"></th>
-                <th order-by="recommendation" name="Recomendação"></th>
+                <th order-by="avaliacao" name="Avaliação"></th>
+                <th order-by="descricao" name="Comentário"></th>
+                <th order-by="recomendacao" name="Recomendação"></th>
                 <th name="Operações"></th>
             </tr>
             </thead>
             <tbody md-auto-select>
             <tr ng-repeat="comentario in vm.getComentarios() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{comentario.contaUsuario}}</td>
+                <td>{{comentario.contaUsuario.pessoa.nome}}</td>
                 <td>{{comentario.dateCreated | date}}</td>
-                <td>{{comentario.avaliation}}</td>
+                <td>{{comentario.avaliacao}}</td>
                 <td>{{comentario.descricao}}</td>
-                <td>{{comentario.recommendation}}</td>
+                <td>{{comentario.recomendacao}}</td>
                 <td>
                     <md-button ng-click="vm.edit(comentario)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="comentarioEdit(comentario)">
