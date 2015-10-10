@@ -34,7 +34,6 @@
             });
         };
 
-
         vm.renovar = function (emprestimo) {
             EmprestimoFactory.renovar(emprestimo).then(function () {
                 MessageFactory.success('Empréstimo renovado com sucesso.');
@@ -42,6 +41,24 @@
             }, function (response) {
                 MessageFactory.grailsError(response.data);
             });
+        };
+
+        vm.devolver = function (emprestimo) {
+            EmprestimoFactory.devolver(emprestimo).then(function () {
+                MessageFactory.success('Ha devolução foi realizada com sucesso.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
+            });
+        };
+
+        vm.verificarMultas = function(id){
+          EmprestimoFactory.verificarMultas(id).then(function () {
+              MessageFactory.success('Verificação realizada com sucesso.');
+              vm.list();
+          }, function (response) {
+              MessageFactory.grailsError(response.data);
+          });
         };
 
         vm.onorderchange = function () {

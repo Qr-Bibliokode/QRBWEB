@@ -1,15 +1,58 @@
-<md-grid-list md-cols-gt-md="6" md-row-height="4:4" md-gutter="12px">
+<div>
+    <md-content class="md-padding" ng-controller="ContaUsuarioCreateController as vm">
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTabCreate">
+            <md-tab label="Tipo de usuário">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Escolha o tipo de usuário</h1>
+                    <md-radio-group ng-model="vm.type" ng-click="vm.seguinte()">
+                        <md-radio-button value="funcionario" class="md-primary">Funcionario</md-radio-button>
+                        <md-radio-button value="estudante">Estudante</md-radio-button>
+                    </md-radio-group>
+                </md-content>
+            </md-tab>
+            <md-tab label="Dados pessoais">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Usuário escolhido: {{vm.type}}</h1>
 
-    <md-grid-tile class="blue" md-rowspan="2" md-colspan="3">
-        <a class="btn btn-primary" btn-primary ui-sref="funcionarioCreate(funcionario)">
-            <md-tooltip>Funcionario</md-tooltip>
-            <md-icon md-font-icon="mdi mdi-worker md-128"></md-icon>
-        </a>
-    </md-grid-tile>
+                    <div ng-if="vm.type=='funcionario'">
+                        <form class="form-horizontal" role="form" ng-submit="vm.createFuncionario()">
+                            <div ng-include="'/app/components/funcionario/_form.html'"></div>
+                        </form>
+                    </div>
+                    <div ng-if="vm.type=='estudante'">
+                        <form class="form-horizontal" role="form" ng-submit="vm.createEstudante()">
+                            <div ng-include="'/app/components/estudante/_form.html'"></div>
+                        </form>
+                    </div>
 
-    <md-grid-tile class="green" md-rowspan="2" md-colspan="3">
-        <a class="btn btn-primary" btn-primary ui-sref="estudanteCreate(funcionario)">
-            <md-icon md-font-icon="mdi mdi-library md-128"></md-icon>
-        </a>
-    </md-grid-tile>
-</md-grid-list>
+                </md-content>
+            </md-tab>
+            <md-tab label="Dados da conta">
+                <form class="form-horizontal" role="form" ng-submit="vm.createAccount()">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Estamos finalizando ! {{vm.estudante.nome}}</h1>
+                        <md-card>
+                            <md-card-content>
+                                <div layout layout-sm="column">
+                                    <md-input-container>
+                                        <label>Login</label>
+                                        <input ng-model="vm.contaUsuario.login">
+                                    </md-input-container>
+                                </div>
+                                <div layout layout-sm="column">
+                                    <md-input-container>
+                                        <label>Senha</label>
+                                        <input ng-model="vm.contaUsuario.senha">
+                                    </md-input-container>
+                                </div>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button>Salvar</md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </md-content>
+                </form>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

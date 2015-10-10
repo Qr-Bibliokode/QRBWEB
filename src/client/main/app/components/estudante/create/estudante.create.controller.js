@@ -11,7 +11,7 @@
 
         vm.create = function () {
             EstudanteFactory.create(vm.estudante).then(function () {
-                MessageFactory.success('Inserido estudante ' + vm.estudante.nome + ' com sucesso.');
+                MessageFactory.success('Criado estudante ' + vm.estudante.nome + ' com sucesso.');
                 vm.clear();
             }, function (response) {
                 MessageFactory.grailsError(response.data);

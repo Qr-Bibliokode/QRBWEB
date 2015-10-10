@@ -36,7 +36,7 @@
 
         function emprestar(emprestimo) {
             var d = $q.defer();
-            $http.post(url+"emprestar/", emprestimo).then(function (response, $q) {
+            $http.post(url + "emprestar/", emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +47,7 @@
 
         function devolver(emprestimo) {
             var d = $q.defer();
-            $http.post(url + "devolver/", emprestimo).then(function (response, $q) {
+            $http.put(url + "devolver/" + emprestimo.id, emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -89,6 +89,17 @@
             return d.promise;
         }
 
+        function verificarMultas(id) {
+            var d = $q.defer();
+            $http.get(url + "verificarMultas/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         function get() {
             return emprestimos;
         }
@@ -98,6 +109,8 @@
             remove: remove,
             emprestar: emprestar,
             renovar: renovar,
+            verificarMultas: verificarMultas,
+            devolver: devolver,
             get: get,
             getById: getById,
             update: update

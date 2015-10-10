@@ -10,9 +10,7 @@
         $stateProvider
             .state('contaUsuario', {
                 url: '/contaUsuario',
-                templateUrl: 'app/components/contaUsuario/contaUsuario.html',
-                controller: 'ContaUsuarioController',
-                controllerAs: 'vm'
+                templateUrl: 'app/components/contaUsuario/contaUsuario.tabs.html'
             })
             .state('contaUsuarioCreate', {
                 parent: 'contaUsuario',
@@ -46,6 +44,6 @@
                     }
                 },
                 url: '/listagem'
-            });
+            })
     }
 })();
