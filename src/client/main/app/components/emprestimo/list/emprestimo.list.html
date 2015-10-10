@@ -14,18 +14,20 @@
                 <th order-by="dataDevolucao" name="Data de devolução"></th>
                 <th order-by="returned" name="Devolvido ?"></th>
                 <th order-by="avisado" name="Avisado ?"></th>
+                <th order-by="renovacoes" name="Nº Renovações"></th>
                 <th name="Operações"></th>
             </tr>
             </thead>
             <tbody md-auto-select>
             <tr ng-repeat="emprestimo in vm.getEmprestimos() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{emprestimo.contaUsuario}}</td>
-                <td>{{emprestimo.livro}}</td>
+                <td>{{emprestimo.contaUsuario.pessoa.nome}}</td>
+                <td>{{emprestimo.livro.titulo}}</td>
                 <td>{{emprestimo.dataEmprestimo | date}}</td>
                 <td>{{emprestimo.dataLimiteDevolucao | date}}</td>
                 <td>{{emprestimo.dataDevolucao | date}}</td>
                 <td>{{emprestimo.devolvido}}</td>
                 <td>{{emprestimo.avisado}}</td>
+                <td>{{emprestimo.renovacoes}}</td>
                 <td>
                     <md-button ng-click="vm.renovar(emprestimo)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary>
