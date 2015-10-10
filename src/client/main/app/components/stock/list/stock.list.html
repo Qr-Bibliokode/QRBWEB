@@ -15,7 +15,7 @@
             </thead>
             <tbody md-auto-select>
             <tr ng-repeat="stock in vm.getStock() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{stock.livro}}</td>
+                <td>{{stock.livro.titulo}}</td>
                 <td>{{stock.disponivel}}</td>
                 <td>{{stock.total}}</td>
                 <td>
