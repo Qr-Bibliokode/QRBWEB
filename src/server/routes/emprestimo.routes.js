@@ -85,16 +85,5 @@ module.exports = [
                 reply(response.data).code(500).type('application/json')
             });
         }
-    },
-    {
-        method: 'GET',
-        path: '/emprestimos/verificarMultas/{contaUsuarioId}',
-        handler: function (request, reply) {
-            swagger.contaUsuario.verificarMultas({contaUsuarioId: request.params.contaUsuarioId}, function (response) {
-                reply(response.data).type('application/json')
-            }, function (response) {
-                reply(response.data).code(500).type('application/json')
-            });
-        }
     }
 ];

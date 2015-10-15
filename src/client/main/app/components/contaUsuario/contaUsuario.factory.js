@@ -71,13 +71,25 @@
             return contaUsuarios;
         }
 
+        function verificarMultas(id) {
+            var d = $q.defer();
+            $http.get(url + "verificarMultas/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         return {
             list: list,
             remove: remove,
             create: create,
             get: get,
             getById: getById,
-            update: update
+            update: update,
+            verificarMultas: verificarMultas
         };
     }
 })();

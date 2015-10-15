@@ -20,6 +20,11 @@
                 <td>{{contaUsuario.pessoa.nome}}</td>
                 <td>{{contaUsuario.pessoa.email}}</td>
                 <td>{{contaUsuario.pessoa.celular}}</td>
+                <td>
+                    <md-button class="md-primary md-raised" ng-click="vm.dialogMultas($event, contaUsuario)" flex flex-md="100">
+                        Visualizar Multas
+                    </md-button>
+                </td>
             </tr>
             </tbody>
         </table>

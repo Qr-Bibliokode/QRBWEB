@@ -52,15 +52,6 @@
             });
         };
 
-        vm.verificarMultas = function(id){
-          EmprestimoFactory.verificarMultas(id).then(function () {
-              MessageFactory.success('Verificação realizada com sucesso.');
-              vm.list();
-          }, function (response) {
-              MessageFactory.grailsError(response.data);
-          });
-        };
-
         vm.onorderchange = function () {
             return vm.list();
         };
