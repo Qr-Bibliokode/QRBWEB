@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('ContaUsuarioListController', ['ContaUsuarioFactory', '$scope', 'MessageFactory', '$mdDialog', ContaUsuarioListController]);
+        .controller('ContaUsuarioListController', ['ContaUsuarioFactory', '$scope', 'MessageFactory', ContaUsuarioListController]);
 
     /** @ngInject */
-    function ContaUsuarioListController(ContaUsuarioFactory, $scope, MessageFactory, $mdDialog) {
+    function ContaUsuarioListController(ContaUsuarioFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -42,7 +42,6 @@
             return vm.list();
         };
 
-
         vm.verificarMultas = function (id) {
             ContaUsuarioFactory.verificarMultas(id).then(function () {
                 MessageFactory.success('Verificação realizada com sucesso.');
@@ -52,20 +51,12 @@
             });
         };
 
-        vm.dialogMultas = function(ev, contaUsuario) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Multas de ' +contaUsuario.pessoa.nome)
-                .content("<tr ng-repeat='multa in contaUsuario.multas'>" +
-                "<td>{{multa.valor}}</td>" +
-                "<td>{{multa.emprestimo.id}}</td></tr>")
-                .targetEvent(ev)
-                .ok('Realizar pagamento')
-                .cancel('Cancelar');
-            $mdDialog.show(confirm).then(function() {
-                $scope.status = 'You decided to get rid of your debt.';
-            }, function() {
-                $scope.status = 'You decided to keep your debt.';
+        vm.pagarMulta = function (id) {
+            ContaUsuarioFactory.pagarMulta(id).then(function () {
+                MessageFactory.success('A multa foi paga.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
             });
         };
 

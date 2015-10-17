@@ -45,9 +45,9 @@
             return d.promise;
         }
 
-        function devolver(emprestimo) {
+        function devolver(id) {
             var d = $q.defer();
-            $http.put(url + "devolver/" + emprestimo.id, emprestimo).then(function (response, $q) {
+            $http.get(url + "devolver/" + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

@@ -82,6 +82,17 @@
             return d.promise;
         }
 
+        function pagarMulta(id) {
+            var d = $q.defer();
+            $http.get(url + "pagarMulta/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         return {
             list: list,
             remove: remove,
@@ -89,7 +100,8 @@
             get: get,
             getById: getById,
             update: update,
-            verificarMultas: verificarMultas
+            verificarMultas: verificarMultas,
+            pagarMulta: pagarMulta
         };
     }
 })();

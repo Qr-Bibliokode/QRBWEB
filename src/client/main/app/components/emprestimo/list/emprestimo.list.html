@@ -29,7 +29,7 @@
                 <td>{{emprestimo.avisado}}</td>
                 <td>{{emprestimo.renovacoes}}</td>
                 <td>
-                    <md-button ng-click="vm.devolver(emprestimo)" class="md-icon-button md-sheet">
+                    <md-button ng-click="vm.devolver(emprestimo.id)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary>
                             <md-tooltip>Realizar devolução</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-checkbox-marked-circle-outline md-18"></md-icon>

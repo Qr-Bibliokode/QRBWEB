@@ -77,5 +77,16 @@ module.exports = [
                 reply(response.data).code(500).type('application/json')
             });
         }
+    },
+    {
+        method: 'GET',
+        path: '/contaUsuarios/pagarMulta/{multaId}',
+        handler: function (request, reply) {
+            swagger.contaUsuario.pagarMulta({multaId: request.params.multaId}, function (response) {
+                reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
+            });
+        }
     }
 ];

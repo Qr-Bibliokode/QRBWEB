@@ -12,6 +12,7 @@
                 <th order-by="nome" name="Pessoa"></th>
                 <th order-by="email" name="E-mail"></th>
                 <th order-by="celular" name="Telefone"></th>
+                <th order-by="multas" name="Multas"></th>
             </tr>
             </thead>
             <tbody md-auto-select>
@@ -20,10 +21,12 @@
                 <td>{{contaUsuario.pessoa.nome}}</td>
                 <td>{{contaUsuario.pessoa.email}}</td>
                 <td>{{contaUsuario.pessoa.celular}}</td>
-                <td>
-                    <md-button class="md-primary md-raised" ng-click="vm.dialogMultas($event, contaUsuario)" flex flex-md="100">
-                        Visualizar Multas
-                    </md-button>
+                <td ng-repeat="multa in contaUsuario.multas | filter: { paga: '!true' }">
+                    <li>{{multa.emprestimo.livro.titulo}} - {{multa.valor | currency}}
+                        <md-button class="md-primary md-raised" ng-click="vm.pagarMulta(multa.id)" flex
+                                   flex-md="100">Pagar multa</md-button>
+                    </li>
+                    </hr>
                 </td>
             </tr>
             </tbody>

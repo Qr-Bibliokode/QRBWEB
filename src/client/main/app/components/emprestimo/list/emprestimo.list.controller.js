@@ -43,8 +43,8 @@
             });
         };
 
-        vm.devolver = function (emprestimo) {
-            EmprestimoFactory.devolver(emprestimo).then(function () {
+        vm.devolver = function (id) {
+            EmprestimoFactory.devolver(id).then(function () {
                 MessageFactory.success('Ha devolução foi realizada com sucesso.');
                 vm.list();
             }, function (response) {

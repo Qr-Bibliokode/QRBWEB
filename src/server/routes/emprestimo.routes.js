@@ -65,10 +65,10 @@ module.exports = [
         }
     },
     {
-        method: 'PUT',
-        path: '/emprestimos/devolver/{id}',
+        method: 'GET',
+        path: '/emprestimos/devolver/{emprestimoId}',
         handler: function (request, reply) {
-            swagger.emprestimo.devolver({emprestimo: request.payload, emprestimoId: request.params.id}, function (response) {
+            swagger.emprestimo.devolver({emprestimoId: request.params.emprestimoId}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
