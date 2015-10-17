@@ -48,6 +48,7 @@
                 MessageFactory.success('Ha devolução foi realizada com sucesso.');
                 vm.list();
             }, function (response) {
+                vm.list();
                 MessageFactory.grailsError(response.data);
             });
         };

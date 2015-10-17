@@ -69,7 +69,7 @@
 
         function renovar(emprestimo) {
             var d = $q.defer();
-            $http.put(url + "renovar/" + emprestimo.id, emprestimo).then(function (response, $q) {
+            $http.get(url + "renovar/" + emprestimo.id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
