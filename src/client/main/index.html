@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css"
           href="/bower_components/angular-material-data-table/dist/md-data-table.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/main.css">
     <link href="/bower_components/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="/app/vendor/md-icon/custom.style.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="/app/vendor/md-toast/custom.style.css" media="all" rel="stylesheet" type="text/css"/>
@@ -13,27 +15,80 @@
 </head>
 <body>
 
-<div layout="column" style="padding-bottom: 15px;">
-    <md-toolbar class="md-info">
-        <div class="md-toolbar-tools">
-            <h2 class="md-flex">Menú principal</h2>
+        <!--<md-button href="#/autor/listagem" class="md-raised md-primary">CRUD Autor</md-button>-->
+        <!--<md-button href="#/livro/listagem" class="md-raised md-primary">CRUD Livro</md-button>-->
+        <!--<md-button href="#/categoria/listagem" class="md-raised md-primary">CRUD Categoria</md-button>-->
+        <!--<md-button href="#/comentario/listagem" class="md-raised md-primary">CRUD Comentario</md-button>-->
+        <!--<md-button href="#/funcionario/listagem" class="md-raised md-primary">CRUD Funcionario</md-button>-->
+        <!--<md-button href="#/feriado/listagem" class="md-raised md-primary">CRUD Feriado</md-button>-->
+        <!--<md-button href="#/idioma/listagem" class="md-raised md-primary">CRUD Idioma</md-button>-->
+        <!--<md-button href="#/emprestimo/listagem" class="md-raised md-primary">CRUD Emprestimo</md-button>-->
+        <!--<md-button href="#/stock/listagem" class="md-raised md-primary">CRUD Stock</md-button>-->
+        <!--<md-button href="#/contaUsuario/listagem" class="md-raised md-primary">CRUD ContaUsuario</md-button>-->
+
+<div class="header">
+    <nav class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBarPrincipal">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Qr-BiblioKode</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navBarPrincipal">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastro<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">Usuários</li>
+                            <li><a class="glyphicon glyphicon-education" aria-hidden="true" href="#/estudante/listagem"> Aluno</a></li>
+                            <li><a class="glyphicon glyphicon-briefcase" aria-hidden="true" href="#/funcionario"> Funcionário</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Biblioteca</li>
+                            <li><a class="glyphicon glyphicon-king" aria-hidden="true" href="#/autor"> Autor</a></li>
+                            <li><a class="glyphicon glyphicon-book" aria-hidden="true" href="#/livro"> Livro</a></li>
+                            <li><a class="glyphicon glyphicon-tag" aria-hidden="true" href="#/categoria"> Categoria</a></li>
+                            <li><a class="glyphicon glyphicon-calendar" aria-hidden="true" href="#/feriado"> Feriado</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/contaUsuario/listagem">Usuarios</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" style="color: #ce8483;font-weight: 900" data-toggle="dropdown" role="button"
+                           aria-expanded="false">Administração<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">Usuários</li>
+                            <li><a class="glyphicon glyphicon-tower" aria-hidden="true" href="#/privilegios"> Privilegios</a></li>
+                            <li><a class="glyphicon glyphicon-sunglasses" aria-hidden="true" href="#/rols"> Rols</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/login"><span class="glyphicon glyphicon-user"></span> Registre-se !</a></li>
+                    <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
         </div>
-    </md-toolbar>
-    <md-content layout-padding style="padding: 24px;">
-        <md-button href="#/autor/listagem" class="md-raised md-primary">CRUD Autor</md-button>
-        <md-button href="#/livro/listagem" class="md-raised md-primary">CRUD Livro</md-button>
-        <md-button href="#/categoria/listagem" class="md-raised md-primary">CRUD Categoria</md-button>
-        <md-button href="#/comentario/listagem" class="md-raised md-primary">CRUD Comentario</md-button>
-        <md-button href="#/funcionario/listagem" class="md-raised md-primary">CRUD Funcionario</md-button>
-        <md-button href="#/feriado/listagem" class="md-raised md-primary">CRUD Feriado</md-button>
-        <md-button href="#/idioma/listagem" class="md-raised md-primary">CRUD Idioma</md-button>
-        <md-button href="#/emprestimo/listagem" class="md-raised md-primary">CRUD Emprestimo</md-button>
-        <md-button href="#/stock/listagem" class="md-raised md-primary">CRUD Stock</md-button>
-        <md-button href="#/estudante/listagem" class="md-raised md-primary">CRUD Estudante</md-button>
-        <md-button href="#/contaUsuario/listagem" class="md-raised md-primary">CRUD ContaUsuario</md-button>
-        <div ui-view></div>
-    </md-content>
+    </nav>
 </div>
+
+<md-content flex layout-padding>
+    <div ui-view></div>
+</md-content>
+
+
+<footer class="footer">
+    <nav class="navbar-inverse navbar-fixed-bottom">
+        <div class="container text-center">
+            <p>Qr-Bibliokode possui direitos autorais <br/>Qualquer tentativa de copia será castigada
+                duramente pela lei do látigo...</p>
+        </div>
+    </nav>
+</footer>
 
 
 </body>
@@ -43,6 +98,8 @@
 <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
 <script type="text/javascript" src="/bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
 <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
 <script type="text/javascript" src="/app/index.module.js"></script>
 <script type="text/javascript" src="/app/components/autor/autor.factory.js"></script>
