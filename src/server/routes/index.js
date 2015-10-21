@@ -6,7 +6,7 @@ var funcionario = require('./funcionario.routes');
 var emprestimo = require('./emprestimo.routes');
 var estudante = require('./estudante.routes');
 var feriado = require('./feriado.routes');
-var idiomaa = require('./idioma.routes');
+var idioma = require('./idioma.routes');
 var livro = require('./livro.routes');
 var stock = require('./stock.routes');
 
@@ -19,7 +19,7 @@ module.exports = [].concat(
     emprestimo,
     estudante,
     feriado,
-    idiomaa,
+    idioma,
     livro,
     stock
 );

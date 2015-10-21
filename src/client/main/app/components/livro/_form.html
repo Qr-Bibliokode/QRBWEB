@@ -25,7 +25,7 @@
             </md-input-container>
         </div>
 
-        <md-select placeholder="Selecione um idiomaa" ng-model="vm.livro.idioma" md-on-open="vm.loadIdiomas()" style="min-width: 200px;">
+        <md-select placeholder="Selecione um idioma" ng-model="vm.livro.idioma" md-on-open="vm.loadIdiomas()" style="min-width: 200px;">
             <md-option ng-value="idioma" ng-repeat="idioma in vm.getIdiomas()">{{idioma.descricao}}</md-option>
         </md-select>
 

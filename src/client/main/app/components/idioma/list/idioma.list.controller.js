@@ -30,7 +30,7 @@
             IdiomaFactory.remove(id).then(function () {
                 MessageFactory.success('Idioma deletado com sucesso.');
             }, function () {
-                MessageFactory.error('Não é possível deletar este idiomaa');
+                MessageFactory.error('Não é possível deletar este idioma');
             });
         };
 
