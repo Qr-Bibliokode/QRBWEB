@@ -14,7 +14,7 @@
                 <th order-by="dataDevolucao" name="Data de devolução"></th>
                 <th order-by="returned" name="Devolvido ?"></th>
                 <th order-by="avisado" name="Avisado ?"></th>
-                <th order-by="renovacoes" name="Nº Renovações"></th>
+                <!--<th order-by="renovacoes" name="Nº Renovações"></th>-->
                 <th order-by="solicitacaoLiberada" name="Liberado"></th>
                 <th order-by="tipoSolicitacao" name="Solicitação"></th>
                 <th name="Operações"></th>
@@ -29,7 +29,7 @@
                 <td>{{emprestimo.dataDevolucao | date}}</td>
                 <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.devolvido ? '':'-outline'}} md-18"></md-icon></td>
                 <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.avisado ? '':'-outline'}} md-18"></md-icon></td>
-                <td>{{emprestimo.renovacoes}}</td>
+                <!--<td>{{emprestimo.renovacoes}}</td>-->
                 <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.solicitacaoLiberada ? '':'-outline'}} md-18"></md-icon></td>
                 <td>{{emprestimo.solicitacao.tipo}}</td>
                 <td>

@@ -9,6 +9,7 @@ var feriado = require('./feriado.routes');
 var idioma = require('./idioma.routes');
 var livro = require('./livro.routes');
 var stock = require('./stock.routes');
+var reserva = require('./reserva.routes');
 
 module.exports = [].concat(
     autor,
@@ -21,5 +22,6 @@ module.exports = [].concat(
     feriado,
     idioma,
     livro,
-    stock
+    stock,
+    reserva
 );

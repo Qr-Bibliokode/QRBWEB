@@ -1,0 +1,47 @@
+<md-card>
+    <md-data-table-toolbar class="alternate" ng-show="vm.selected.length">
+        <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items selecionados' : 'item selecionado'}}</div>
+    </md-data-table-toolbar>
+
+    <md-data-table-container>
+        <table md-data-table md-row-select="vm.selected" md-progress="vm.init" class="table-condensed">
+            <thead md-order="query.order" md-trigger="vm.onorderchange">
+            <tr>
+                <th order-by="contaUsuario" name="Usuário"></th>
+                <th order-by="livro" name="Livro"></th>
+                <th order-by="dataInicio" name="Inicio"></th>
+                <th order-by="dataFim" name="Fim"></th>
+                <th order-by="ativa" name="Ativa"></th>
+                <th name="Operações"></th>
+            </tr>
+            </thead>
+            <tbody md-auto-select>
+            <tr ng-repeat="reserva in vm.getReservas() | orderBy: query.order | filter: skip | limitTo: query.limit">
+                <td>{{emprestimo.contaUsuario.pessoa.nome}}</td>
+                <td>{{emprestimo.livro.titulo}}</td>
+                <td>{{reserva.dataInicio | date}}</td>
+                <td>{{reserva.dataFim | date}}</td>
+                <td>{{reserva.ativa}}</td>
+                <td>
+                    <md-button ng-click="vm.edit(reserva)" class="md-icon-button md-sheet">
+                        <a class="btn btn-primary" btn-primary ui-sref="reservaEdit(reserva)">
+                            <md-tooltip>Editar</md-tooltip>
+                            <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>
+                        </a>
+                    </md-button>
+
+                    <md-button ng-click="vm.remove(reserva.id)" class="md-icon-button md-sheet">
+                        <md-tooltip>Remover</md-tooltip>
+                        <md-icon md-font-icon="mdi mdi-delete md-18"></md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+
+    <md-data-table-pagination md-limit="query.limit"
+                              md-page="query.page"
+                              md-total="{{vm.total}}"
+                              md-trigger="onpagechange"></md-data-table-pagination>
+</md-card>

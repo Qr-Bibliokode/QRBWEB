@@ -1,0 +1,8 @@
+<md-content class="md-padding" ng-controller="ReservaTabsController as vm">
+    <h1 class="md-title">{{vm.title}}</h1>
+    <md-tabs md-selected="selectedTab" md-dynamic-height md-border-bottom>
+        <md-tab>Listagem</md-tab>
+        <md-tab>Cadastro</md-tab>
+    </md-tabs>
+    <div ui-view="tabReserva"></div>
+</md-content>
