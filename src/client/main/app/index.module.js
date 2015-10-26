@@ -1,1 +1,1 @@
-angular.module('qrbweb', ['ui.router','md.data.table', 'ngMaterial']);
+angular.module('qrbweb', ['ui.router','md.data.table', 'ngMaterial', 'monospaced.qrcode']);

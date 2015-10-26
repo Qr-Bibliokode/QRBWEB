@@ -88,5 +88,16 @@ module.exports = [
                 reply(response.data).code(500).type('application/json')
             });
         }
+    },
+    {
+        method: 'GET',
+        path: '/emprestimos/liberar/{id}',
+        handler: function (request, reply) {
+            swagger.emprestimo.liberar({emprestimoId: request.params.id}, function (response) {
+                reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
+            });
+        }
     }
 ];

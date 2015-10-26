@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('LivroListController', ['LivroFactory', '$scope', 'MessageFactory', LivroListController]);
+        .controller('qrcodeListController', ['LivroFactory', '$scope', 'MessageFactory', qrcodeListController]);
 
     /** @ngInject */
-    function LivroListController(LivroFactory, $scope, MessageFactory) {
+    function qrcodeListController(LivroFactory, $scope) {
         var vm = this;
 
         vm.selected = [];
@@ -24,14 +24,6 @@
 
         vm.getLivros = function () {
             return LivroFactory.get();
-        };
-
-        vm.remove = function (id) {
-            LivroFactory.remove(id).then(function () {
-                MessageFactory.success('Livro deletado com sucesso.');
-            }, function () {
-                MessageFactory.error('Não é possível deletar este livro');
-            });
         };
 
         vm.onorderchange = function () {

@@ -1,0 +1,31 @@
+<md-card>
+    <md-data-table-toolbar class="alternate" ng-show="vm.selected.length">
+        <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items selecionados' : 'item selecionado'}}</div>
+    </md-data-table-toolbar>
+
+    <md-data-table-container>
+        <table md-data-table md-row-select="vm.selected" md-progress="vm.init" class="table-condensed">
+            <thead md-order="query.order" md-trigger="vm.onorderchange">
+            <tr>
+                <th order-by="id" name="id"></th>
+                <th order-by="title" name="Título"></th>
+                <th name="qrcode"></th>
+            </tr>
+            </thead>
+            <tbody md-auto-select>
+            <tr ng-repeat="livro in vm.getLivros() | orderBy: query.order | filter: skip | limitTo: query.limit">
+                <td>{{livro.id}}</td>
+                <td>{{livro.titulo}}</td>
+                <td>
+                    <qrcode version="1" size="256" data="{{livro.id}}" download></qrcode>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </md-data-table-container>
+
+    <md-data-table-pagination md-limit="query.limit"
+                              md-page="query.page"
+                              md-total="{{vm.total}}"
+                              md-trigger="onpagechange"></md-data-table-pagination>
+</md-card>

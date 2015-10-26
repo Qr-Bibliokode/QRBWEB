@@ -43,6 +43,15 @@
             });
         };
 
+        vm.liberar = function (id) {
+            EmprestimoFactory.liberar(id).then(function () {
+                MessageFactory.success('Empréstimo liberado com sucesso.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
+            });
+        };
+
         vm.devolver = function (id) {
             EmprestimoFactory.devolver(id).then(function () {
                 MessageFactory.success('Ha devolução foi realizada com sucesso.');

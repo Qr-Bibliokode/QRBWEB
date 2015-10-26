@@ -27,6 +27,7 @@
     "angular-material": "0.11.3",
     "angular-ui-router": "~0.2.15",
     "mdi": "~1.2.65",
-    "angular": "~1.4.4"
+    "angular": "~1.4.4",
+    "angular-qrcode": "~6.1.3"
   }
 }

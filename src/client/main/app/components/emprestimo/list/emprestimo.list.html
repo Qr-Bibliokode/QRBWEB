@@ -15,6 +15,8 @@
                 <th order-by="returned" name="Devolvido ?"></th>
                 <th order-by="avisado" name="Avisado ?"></th>
                 <th order-by="renovacoes" name="Nº Renovações"></th>
+                <th order-by="solicitacaoLiberada" name="Liberado"></th>
+                <th order-by="tipoSolicitacao" name="Solicitação"></th>
                 <th name="Operações"></th>
             </tr>
             </thead>
@@ -25,21 +27,30 @@
                 <td>{{emprestimo.dataEmprestimo | date}}</td>
                 <td>{{emprestimo.dataLimiteDevolucao | date}}</td>
                 <td>{{emprestimo.dataDevolucao | date}}</td>
-                <td>{{emprestimo.devolvido}}</td>
-                <td>{{emprestimo.avisado}}</td>
+                <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.devolvido ? '':'-outline'}} md-18"></md-icon></td>
+                <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.avisado ? '':'-outline'}} md-18"></md-icon></td>
                 <td>{{emprestimo.renovacoes}}</td>
+                <td><md-icon md-font-icon="mdi mdi-checkbox-blank-circle{{emprestimo.solicitacaoLiberada ? '':'-outline'}} md-18"></md-icon></td>
+                <td>{{emprestimo.solicitacao.tipo}}</td>
                 <td>
-                    <md-button ng-hide="emprestimo.devolvido" ng-click="vm.devolver(emprestimo.id)" class="md-icon-button md-sheet">
+                    <md-button ng-hide="emprestimo.devolvido || !emprestimo.solicitacaoLiberada" ng-click="vm.devolver(emprestimo.id)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary>
                             <md-tooltip>Realizar devolução</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-checkbox-marked-circle-outline md-18"></md-icon>
                         </a>
                     </md-button>
 
-                    <md-button ng-hide="emprestimo.devolvido" ng-click="vm.renovar(emprestimo)" class="md-icon-button md-sheet">
+                    <md-button ng-hide="emprestimo.devolvido || !emprestimo.solicitacaoLiberada" ng-click="vm.renovar(emprestimo)" class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary>
                             <md-tooltip>Renovar</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-refresh md-18"></md-icon>
+                        </a>
+                    </md-button>
+
+                    <md-button ng-hide="emprestimo.solicitacaoLiberada" ng-click="vm.liberar(emprestimo.id)" class="md-icon-button md-sheet">
+                        <a class="btn btn-primary" btn-primary>
+                            <md-tooltip>Liberar</md-tooltip>
+                            <md-icon md-font-icon="mdi mdi-chevron-double-up md-18"></md-icon>
                         </a>
                     </md-button>
                 </td>

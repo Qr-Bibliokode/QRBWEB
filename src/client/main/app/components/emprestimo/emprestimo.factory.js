@@ -78,6 +78,17 @@
             return d.promise;
         }
 
+        function liberar(id) {
+            var d = $q.defer();
+            $http.get(url + "liberar/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         function getById(id) {
             var d = $q.defer();
             $http.get(url + id).then(function (response, $q) {
@@ -98,6 +109,7 @@
             remove: remove,
             emprestar: emprestar,
             renovar: renovar,
+            liberar: liberar,
             devolver: devolver,
             get: get,
             getById: getById,

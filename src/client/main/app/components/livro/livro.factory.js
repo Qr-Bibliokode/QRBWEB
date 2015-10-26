@@ -34,9 +34,9 @@
             return d.promise;
         }
 
-        function create(livro) {
+        function create(stock) {
             var d = $q.defer();
-            $http.post(url, livro).then(function (response, $q) {
+            $http.post(url, stock).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
