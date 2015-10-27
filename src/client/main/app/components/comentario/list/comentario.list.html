@@ -8,6 +8,7 @@
             <thead md-order="query.order" md-trigger="vm.onorderchange">
             <tr>
                 <th order-by="contaUsuario" name="Usuário"></th>
+                <th order-by="livro" name="Livro"></th>
                 <th order-by="dateCreated" name="Data"></th>
                 <th order-by="avaliacao" name="Avaliação"></th>
                 <th order-by="descricao" name="Comentário"></th>
@@ -18,6 +19,7 @@
             <tbody md-auto-select>
             <tr ng-repeat="comentario in vm.getComentarios() | orderBy: query.order | filter: skip | limitTo: query.limit">
                 <td>{{comentario.contaUsuario.pessoa.nome}}</td>
+                <td>{{comentario.livro.titulo}}</td>
                 <td>{{comentario.dateCreated | date}}</td>
                 <td>{{comentario.avaliacao}}</td>
                 <td>{{comentario.descricao}}</td>

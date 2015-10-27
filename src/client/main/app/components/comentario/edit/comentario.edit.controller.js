@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('ComentarioEditController', ['ComentarioFactory', '$stateParams', '$state', 'ContaUsuarioFactory', 'MessageFactory', ComentarioEditController]);
+        .controller('ComentarioEditController', ['ComentarioFactory', 'LivroFactory', '$stateParams', '$state', 'ContaUsuarioFactory', 'MessageFactory', ComentarioEditController]);
 
     /** @ngInject */
-    function ComentarioEditController(ComentarioFactory, $stateParams, $state, ContaUsuarioFactory, MessageFactory) {
+    function ComentarioEditController(ComentarioFactory, LivroFactory, $stateParams, $state, ContaUsuarioFactory, MessageFactory) {
         var vm = this;
 
         vm.comentario = '';
@@ -39,6 +39,10 @@
 
         vm.getContaUsuarios = function () {
             return ContaUsuarioFactory.get();
+        };
+
+        vm.getLivros = function () {
+            return LivroFactory.get();
         };
     }
 })
