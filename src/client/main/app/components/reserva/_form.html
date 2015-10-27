@@ -1,13 +1,13 @@
 <md-card>
     <md-card-content>
-        <md-select placeholder="Selecione o usuário" ng-model="vm.emprestimo.contaUsuario"
+        <md-select placeholder="Selecione o usuário" ng-model="vm.reserva.contaUsuario"
                    md-on-open="vm.loadContaUsuarios()" style="min-width: 200px;">
             <md-option ng-value="contaUsuario" ng-repeat="contaUsuario in vm.getContaUsuarios()">
                 {{contaUsuario.login}}
             </md-option>
         </md-select>
 
-        <md-select placeholder="Selecione o livro" ng-model="vm.emprestimo.livro" md-on-open="vm.loadLivros()"
+        <md-select placeholder="Selecione o livro" ng-model="vm.reserva.livro" md-on-open="vm.loadLivros()"
                    style="min-width: 200px;">
             <md-option ng-value="livro" ng-repeat="livro in vm.getLivros()">{{livro.titulo}}</md-option>
         </md-select>
@@ -19,7 +19,7 @@
         </div>
         <div layout layout-sm="column">
             <label>Status</label>
-            <md-radio-group ng-model="vm.comentario.ativa">
+            <md-radio-group ng-model="vm.reserva.ativa">
                 <md-radio-button value="true">Ativa</md-radio-button>
                 <md-radio-button value="false">Expirada</md-radio-button>
             </md-radio-group>

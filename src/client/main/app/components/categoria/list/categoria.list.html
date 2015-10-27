@@ -15,7 +15,7 @@
             <tr ng-repeat="categoria in vm.getCategories() | orderBy: query.order | filter: skip | limitTo: query.limit">
                 <td>{{categoria.descricao}}</td>
                 <td>
-                    <md-button ng-click="vm.edit(categoria)" class="md-icon-button md-sheet">
+                    <md-button class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="categoriaEdit(categoria)">
                             <md-tooltip>Editar</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>

@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('LivroListController', ['LivroFactory', '$scope', 'MessageFactory', LivroListController]);
+        .controller('LivroListController', ['LivroFactory', 'EmprestimoFactory', '$scope', 'MessageFactory', LivroListController]);
 
     /** @ngInject */
-    function LivroListController(LivroFactory, $scope, MessageFactory) {
+    function LivroListController(LivroFactory, EmprestimoFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -40,6 +40,14 @@
 
         vm.onpagechange = function () {
             return vm.list();
+        };
+
+        vm.mostraHistoricoLocacoes = function (id) {
+            EmprestimoFactory.obtenhaHistoricoEmprestimosPorLivro(id).then(function (response) {
+                vm.historicoEmprestimos = response.data;
+            }, function () {
+                MessageFactory.error('Não é possível deletar este livro');
+            });
         };
 
         vm.init = vm.list();

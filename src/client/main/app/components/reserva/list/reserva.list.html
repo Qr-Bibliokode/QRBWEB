@@ -17,13 +17,13 @@
             </thead>
             <tbody md-auto-select>
             <tr ng-repeat="reserva in vm.getReservas() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{emprestimo.contaUsuario.pessoa.nome}}</td>
-                <td>{{emprestimo.livro.titulo}}</td>
+                <td>{{reserva.contaUsuario.pessoa.nome}}</td>
+                <td>{{reserva.livro.titulo}}</td>
                 <td>{{reserva.dataInicio | date}}</td>
                 <td>{{reserva.dataFim | date}}</td>
                 <td>{{reserva.ativa}}</td>
                 <td>
-                    <md-button ng-click="vm.edit(reserva)" class="md-icon-button md-sheet">
+                    <md-button class="md-icon-button md-sheet">
                         <a class="btn btn-primary" btn-primary ui-sref="reservaEdit(reserva)">
                             <md-tooltip>Editar</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>

@@ -44,14 +44,34 @@
                         <md-tooltip>Remover</md-tooltip>
                         <md-icon md-font-icon="mdi mdi-delete md-18"></md-icon>
                     </md-button>
+
+                    <md-button class="md-primary md-raised" ng-click="vm.mostraHistoricoLocacoes(livro.id)">
+                        Histórico de locações
+                    </md-button>
                 </td>
             </tr>
             </tbody>
         </table>
     </md-data-table-container>
-
     <md-data-table-pagination md-limit="query.limit"
                               md-page="query.page"
                               md-total="{{vm.total}}"
                               md-trigger="onpagechange"></md-data-table-pagination>
+
+
 </md-card>
+<md-list ng-show="vm.historicoEmprestimos != null">
+    <md-subheader class="md-no-sticky">
+        {{vm.historicoEmprestimos.length > 1 ? vm.historicoEmprestimos.length + ' locações realizados'
+        : vm.historicoEmprestimos.length == 1 ? '1 locação realizada': 'Nenhuma locação realizada'}}
+    </md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="item in vm.historicoEmprestimos">
+        <img ng-src="{{item.contaUsuario.pessoa.avatar}}?{{$index}}" class="md-avatar" alt="{{item.livro.autor.nome}}"/>
+
+        <div class="md-list-item-text" layout="column">
+            <h3>{{ item.contaUsuario.pessoa.nome }}</h3>
+            <h4>{{ item.livro.titulo }}</h4>
+            <h4>{{ item.dataEmprestimo | date }}</h4>
+        </div>
+    </md-list-item>
+</md-list>

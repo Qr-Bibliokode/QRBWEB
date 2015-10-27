@@ -89,6 +89,17 @@
             return d.promise;
         }
 
+        function obtenhaHistoricoEmprestimosPorLivro(id) {
+            var d = $q.defer();
+            $http.get(url + "obtenhaHistoricoEmprestimosPorLivro/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         function getById(id) {
             var d = $q.defer();
             $http.get(url + id).then(function (response, $q) {
@@ -111,6 +122,7 @@
             renovar: renovar,
             liberar: liberar,
             devolver: devolver,
+            obtenhaHistoricoEmprestimosPorLivro: obtenhaHistoricoEmprestimosPorLivro,
             get: get,
             getById: getById,
             update: update

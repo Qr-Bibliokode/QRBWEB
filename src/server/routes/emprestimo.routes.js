@@ -99,5 +99,16 @@ module.exports = [
                 reply(response.data).code(500).type('application/json')
             });
         }
+    },
+    {
+        method: 'GET',
+        path: '/emprestimos/obtenhaHistoricoEmprestimosPorLivro/{id}',
+        handler: function (request, reply) {
+            swagger.emprestimo.obtenhaHistoricoEmprestimosPorLivro({livroId: request.params.id}, function (response) {
+                reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
+            });
+        }
     }
 ];
