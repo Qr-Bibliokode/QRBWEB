@@ -46,7 +46,7 @@
             EmprestimoFactory.obtenhaHistoricoEmprestimosPorLivro(id).then(function (response) {
                 vm.historicoEmprestimos = response.data;
             }, function () {
-                MessageFactory.error('Não é possível deletar este livro');
+                MessageFactory.error('Não é possível mostrar o histórico deste livro');
             });
         };
 
