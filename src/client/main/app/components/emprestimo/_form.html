@@ -3,7 +3,7 @@
         <md-select placeholder="Selecione o usuário" ng-model="vm.emprestimo.contaUsuario"
                    md-on-open="vm.loadContaUsuarios()" style="min-width: 200px;">
             <md-option ng-value="contaUsuario" ng-repeat="contaUsuario in vm.getContaUsuarios()">
-                {{contaUsuario.login}}
+                {{contaUsuario.username}}
             </md-option>
         </md-select>
 
