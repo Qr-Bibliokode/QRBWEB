@@ -5,22 +5,21 @@ var routes = require('./routes');
 
 server.connection({port: 3000});
 
+server.register(require('hapi-auth-cookie'), function (err) {
+
+    server.auth.strategy('session', 'cookie', {
+        password: 'secret',
+        cookie: 'sid-example',
+        redirectTo: '/login',
+        isSecure: false
+    });
+});
+
+
 server.register(intert, function () {
 });
 
 server.route(routes);
-
-server.route({
-    method: 'GET',
-    path: '/{path*}',
-    handler: {
-        directory: {
-            path: 'src/client/main/',
-            listing: false,
-            index: true
-        }
-    }
-});
 
 server.route({
     method: 'GET',
@@ -40,6 +39,16 @@ server.route({
     handler: {
         directory: {
             path: 'bower_components/'
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/server/{params*}',
+    handler: {
+        directory: {
+            path: 'src/server/'
         }
     }
 });

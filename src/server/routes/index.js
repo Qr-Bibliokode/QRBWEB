@@ -1,15 +1,19 @@
-var autor = require('./autor.routes');
-var categoria = require('./categoria.routes');
-var comentario = require('./comentario.routes');
-var contaUsuario = require('./contaUsuario.routes');
-var funcionario = require('./funcionario.routes');
-var emprestimo = require('./emprestimo.routes');
-var estudante = require('./estudante.routes');
-var feriado = require('./feriado.routes');
-var idioma = require('./idioma.routes');
-var livro = require('./livro.routes');
-var stock = require('./stock.routes');
-var reserva = require('./reserva.routes');
+// Components
+var autor = require('./components/autor.routes');
+var categoria = require('./components/categoria.routes');
+var comentario = require('./components/comentario.routes');
+var contaUsuario = require('./components/contaUsuario.routes');
+var funcionario = require('./components/funcionario.routes');
+var emprestimo = require('./components/emprestimo.routes');
+var estudante = require('./components/estudante.routes');
+var feriado = require('./components/feriado.routes');
+var idioma = require('./components/idioma.routes');
+var livro = require('./components/livro.routes');
+var stock = require('./components/stock.routes');
+var reserva = require('./components/reserva.routes');
+
+// Login
+var login = require('../login/login.routes');
 
 module.exports = [].concat(
     autor,
@@ -23,5 +27,6 @@ module.exports = [].concat(
     idioma,
     livro,
     stock,
-    reserva
+    reserva,
+    login
 );

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="qrbweb">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/bower_components/angular-material/angular-material.min.css">
+</head>
+<body>
+<div layout="column" layout-align="center center" style="height: 100%" ng-controller="LoginController as vm">
+    <h1 flex="5">QRB</h1>
+
+    <h3 flex="10">Gerencia de bibliotecas com Qr-Code</h3>
+
+    <div flex="65">
+        <md-card>
+            <md-card-content>
+                <md-input-container>
+                    <label>Usuário</label>
+                    <input ng-model="vm.user.username">
+                </md-input-container>
+                <md-input-container>
+                    <label>Senha</label>
+                    <input type="password" ng-model="vm.user.password">
+                </md-input-container>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center">
+                <md-button ng-click="vm.login()" >Entrar</md-button>
+            </div>
+        </md-card>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
+
+<script type="text/javascript" src="/server/login/login.module.js"></script>
+<script type="text/javascript" src="/server/login/login.factory.js"></script>
+<script type="text/javascript" src="/server/login/login.controller.js"></script>
+</html>
