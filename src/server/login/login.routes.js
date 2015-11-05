@@ -28,7 +28,7 @@ var login = function (request, reply) {
 
     if (request.method === 'post') {
 
-        if (!request.payload.username || !request.payload.password) {
+        if (!request.payload || !request.payload.username || !request.payload.password) {
 
             message = 'Usuário e senha são necessários para realizar o login';
         }
