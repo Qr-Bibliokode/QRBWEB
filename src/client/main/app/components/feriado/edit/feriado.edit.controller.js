@@ -3,15 +3,17 @@
 
     angular
         .module('qrbweb')
-        .controller('FeriadoEditController', ['FeriadoFactory', '$stateParams', '$state', 'MessageFactory', FeriadoEditController]);
+        .controller('FeriadoEditController', ['FeriadoFactory', '$stateParams', '$state', 'MessageFactory', '$filter', FeriadoEditController]);
 
     /** @ngInject */
-    function FeriadoEditController(FeriadoFactory, $stateParams, $state, MessageFactory) {
+    function FeriadoEditController(FeriadoFactory, $stateParams, $state, MessageFactory, $filter) {
         var vm = this;
 
         vm.feriado = '';
 
         vm.update = function () {
+            vm.feriado.dataInicio = $filter('date')(vm.feriado.dataInicio, "yyyy-MM-dd HH:mm:ss.s");
+            vm.feriado.dataFim = $filter('date')(vm.feriado.dataFim, "yyyy-MM-dd HH:mm:ss.s");
             FeriadoFactory.update(vm.feriado).then(function () {
                 MessageFactory.success('Feriado ' + vm.feriado.descricao + ' editado com sucesso.');
                 $state.transitionTo('feriadoList');
