@@ -34,6 +34,7 @@ var login = function (request, reply) {
         }
         else {
             account = users[request.payload.username];
+            //TODO Procurar usuário no webserver
             if (!account ||
                 account.password !== request.payload.password) {
 
