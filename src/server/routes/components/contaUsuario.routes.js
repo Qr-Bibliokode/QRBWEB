@@ -110,5 +110,19 @@ module.exports = [
                 reply(response.data).code(500).type('application/json')
             });
         }
+    },
+    {
+        method: 'GET',
+        path: '/contaUsuarios/validaUsuario/{username}/{password}',
+        handler: function (request, reply) {
+            swagger.contaUsuario.validaUsuario({
+                username: request.params.username,
+                password: request.params.password
+            }, function (response) {
+                reply(response.data).type('application/json')
+            }, function (response) {
+                reply(response.data).code(500).type('application/json')
+            });
+        }
     }
 ];
