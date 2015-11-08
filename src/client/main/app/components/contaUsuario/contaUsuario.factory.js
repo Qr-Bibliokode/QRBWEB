@@ -93,6 +93,28 @@
             return d.promise;
         }
 
+        function bloquearContaUsuario(id) {
+            var d = $q.defer();
+            $http.get(url + "bloquearContaUsuario/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
+        function habilitarContaUsuario(id) {
+            var d = $q.defer();
+            $http.get(url + "habilitarContaUsuario/" + id).then(function (response, $q) {
+                    d.resolve(response);
+                },
+                function (data) {
+                    d.reject(data);
+                });
+            return d.promise;
+        }
+
         return {
             list: list,
             remove: remove,
@@ -101,7 +123,9 @@
             getById: getById,
             update: update,
             verificarMultas: verificarMultas,
-            pagarMulta: pagarMulta
+            pagarMulta: pagarMulta,
+            bloquearContaUsuario: bloquearContaUsuario,
+            habilitarContaUsuario: habilitarContaUsuario
         };
     }
 })();

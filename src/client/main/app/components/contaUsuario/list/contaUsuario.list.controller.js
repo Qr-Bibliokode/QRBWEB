@@ -60,6 +60,24 @@
             });
         };
 
+        vm.bloquearContaUsuario = function (id) {
+            ContaUsuarioFactory.bloquearContaUsuario(id).then(function () {
+                MessageFactory.success('A conta foi bloqueada.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
+            });
+        };
+
+        vm.habilitarContaUsuario = function (id) {
+            ContaUsuarioFactory.habilitarContaUsuario(id).then(function () {
+                MessageFactory.success('A conta foi habilitada.');
+                vm.list();
+            }, function (response) {
+                MessageFactory.grailsError(response.data);
+            });
+        };
+
         vm.init = vm.list();
     }
 })();

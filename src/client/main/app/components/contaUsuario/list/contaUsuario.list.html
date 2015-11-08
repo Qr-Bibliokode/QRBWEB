@@ -12,7 +12,8 @@
                 <th order-by="nome" name="Pessoa"></th>
                 <th order-by="email" name="E-mail"></th>
                 <th order-by="celular" name="Telefone"></th>
-                <th order-by="multas" name="Multas"></th>
+                <th name="Multas"></th>
+                <th name="Ações"></th>
             </tr>
             </thead>
             <tbody md-auto-select>
@@ -21,11 +22,21 @@
                 <td>{{contaUsuario.pessoa.nome}}</td>
                 <td>{{contaUsuario.pessoa.email}}</td>
                 <td>{{contaUsuario.pessoa.celular}}</td>
-                <td ng-repeat="multa in contaUsuario.multas | filter: { paga: '!true' }">
-                    <li>{{multa.emprestimo.livro.titulo}} - {{multa.valor | currency}}
+                <td>
+                    <li ng-repeat="multa in contaUsuario.multas | filter: { paga: '!true' }">
+                        {{multa.emprestimo.livro.titulo}} - {{multa.valor | currency}}
                         <md-button class="md-primary md-raised" ng-click="vm.pagarMulta(multa.id)" flex
-                                   flex-md="100">Pagar multa</md-button>
+                                   flex-md="100">Pagar multa
+                        </md-button>
                     </li>
+                </td>
+                <td>
+                    <md-button ng-show="contaUsuario.enabled" class="md-warn md-raised" ng-click="vm.bloquearContaUsuario(contaUsuario.id)" flex
+                               flex-md="100">Bloquear conta
+                    </md-button>
+                    <md-button ng-show="!contaUsuario.enabled" class="md-primary md-raised" ng-click="vm.habilitarContaUsuario(contaUsuario.id)" flex
+                               flex-md="100">Habilitar conta
+                    </md-button>
                     </hr>
                 </td>
             </tr>
