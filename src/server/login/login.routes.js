@@ -9,64 +9,57 @@ var swagger = new client({
 });
 
 
-var users = {
-    john: {
-        id: 'john',
-        password: 'password',
-        name: 'John Doe'
+var usuarios = {
+    felansu: {
+        id: 'felansu',
+        password: 'felansu',
+        name: 'Ferran'
+    },
+    admin: {
+        id: 'admin',
+        password: 'admin',
+        name: 'Administrador'
     }
 };
 
-var login = function (request, reply) {
 
+var login = function (request, reply) {
     if (request.auth.isAuthenticated) {
         return reply.redirect('/');
     }
 
     var message = '';
-    var account = null;
+    var contaUsuario = null;
 
     if (request.method === 'post') {
 
         if (!request.payload || !request.payload.username || !request.payload.password) {
-
             message = 'Usuário e senha são necessários para realizar o login';
-        }
-        else {
-            account = users[request.payload.username];
-            //TODO Procurar usuário no webserver
-            if (!account ||
-                account.password !== request.payload.password) {
+        } else {
 
+            contaUsuario = usuarios[request.payload.username];
+
+            if (!contaUsuario || contaUsuario.password !== request.payload.password) {
                 message = 'Usuário ou senha inválidos';
             }
         }
     }
 
-    if (request.method === 'get' ||
-        message) {
-
+    if (request.method === 'get' || message) {
         return reply.file('src/server/login/login.html');
     }
 
-    request.auth.session.set(account);
+    request.auth.session.set(contaUsuario);
     return reply.redirect('/');
+};
+
+var usuarioLogado = function (request) {
+    return request.auth.credentials.id
 };
 
 var logout = function (request, reply) {
-
     request.auth.session.clear();
     return reply.redirect('/');
-};
-
-var home = function (request, reply) {
-
-    console.log(request.auth.isAuthenticated);
-    reply('<html><head><title>Login page</title></head><body><h3>Welcome '
-        + request.auth.credentials.name
-        + '!</h3><br/><form method="get" action="/logout">'
-        + '<input type="submit" value="Logout">'
-        + '</form></body></html>');
 };
 
 module.exports = [
@@ -105,6 +98,14 @@ module.exports = [
         path: '/logout',
         config: {
             handler: logout,
+            auth: 'session'
+        }
+    },
+    {
+        method: 'GET',
+        path: '/usuarioLogado',
+        config: {
+            handler: usuarioLogado,
             auth: 'session'
         }
     }

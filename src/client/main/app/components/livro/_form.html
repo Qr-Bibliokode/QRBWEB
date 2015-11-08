@@ -2,7 +2,7 @@
     <md-card-content>
         <div layout layout-sm="column">
             <md-input-container flex="100">
-                <label>ISB</label>
+                <label>ISBN</label>
                 <input md-maxlength="17" ng-model="vm.livro.isbn">
             </md-input-container>
         </div>
@@ -14,7 +14,7 @@
         </div>
         <div layout layout-sm="column">
             <md-input-container flex="100">
-                <label>Sinopsis</label>
+                <label>Sinópse</label>
                 <input md-maxlength="5000" ng-model="vm.livro.sinopse">
             </md-input-container>
         </div>
@@ -40,7 +40,7 @@
             <md-option ng-value="autor" ng-repeat="autor in vm.getAutors()">{{autor.nome}}</md-option>
         </md-select>
 
-        <h3>Stock</h3>
+        <h3>Estoque</h3>
 
         <div layout layout-sm="column">
             <md-input-container flex="100">
