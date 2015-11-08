@@ -3,16 +3,28 @@
 
     angular
         .module('qrbweb')
-        .controller('LoginController', ['LoginFactory', LoginController]);
+        .controller('LoginController', ['LoginFactory', '$window', LoginController]);
 
     /** @ngInject */
-    function LoginController(LoginFactory) {
+    function LoginController(LoginFactory, $window) {
+
         var vm = this;
+        vm.user = '';
 
         vm.login = function () {
-            LoginFactory.login(vm.user).then(function (data) {
-                vm.clear();
-                console.log(data)
+            LoginFactory.validaUsuario(vm.user).then(function (result) {
+                LoginFactory.login(result.data).then(function () {
+                    $window.location.href = '/';
+                }, function () {
+                    $window.location.href = '/';
+                });
+            }, function (response) {
+                console.log(response)
+            });
+        };
+
+        vm.logout = function () {
+            LoginFactory.logout().then(function (data) {
             }, function (response) {
                 console.log(response.data);
             });
