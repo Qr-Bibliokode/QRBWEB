@@ -13,19 +13,19 @@
 
     <div flex="65">
         <md-card>
-            <md-card-content>
-                <md-input-container>
-                    <label>Usuário</label>
-                    <input ng-model="vm.user.username">
-                </md-input-container>
-                <md-input-container>
-                    <label>Senha</label>
-                    <input type="password" ng-model="vm.user.password">
-                </md-input-container>
-            </md-card-content>
-            <div class="md-actions" layout="row" layout-align="end center">
-                <md-button ng-click="vm.login()" >Entrar</md-button>
-            </div>
+            <form id="login" autocomplete="off" ng-submit="vm.login()">
+                <md-card-content>
+                    <md-input-container>
+                        <label for="username">Usuário</label>
+                        <input id="username" name="username" ng-model="vm.user.username" type="text" autofocus>
+                    </md-input-container>
+                    <md-input-container>
+                        <label for="password">Senha</label>
+                        <input id="password" name="password" type="password" ng-model="vm.user.password">
+                    </md-input-container>
+                </md-card-content>
+                <button ng-show="false" type="submit"></button>
+            </form>
         </md-card>
     </div>
 </div>
