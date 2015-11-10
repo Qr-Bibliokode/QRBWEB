@@ -9,7 +9,7 @@ var estudante = require('./components/estudante.routes');
 var feriado = require('./components/feriado.routes');
 var idioma = require('./components/idioma.routes');
 var livro = require('./components/livro.routes');
-var stock = require('./components/stock.routes');
+var estoque = require('./components/estoque.routes');
 var reserva = require('./components/reserva.routes');
 
 // Login
@@ -26,7 +26,7 @@ module.exports = [].concat(
     feriado,
     idioma,
     livro,
-    stock,
+    estoque,
     reserva,
     login
 );

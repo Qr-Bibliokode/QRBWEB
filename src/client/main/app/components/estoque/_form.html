@@ -1,19 +1,19 @@
 <md-card>
     <md-card-content>
-        <md-select placeholder="Selecione o livro" ng-model="vm.stock.livro" md-on-open="vm.loadLivros()"
+        <md-select placeholder="Selecione o livro" ng-model="vm.estoque.livro" md-on-open="vm.loadLivros()"
                    style="min-width: 200px;">
             <md-option ng-value="livro" ng-repeat="livro in vm.getLivros()">{{livro.titulo}}</md-option>
         </md-select>
         <div layout layout-sm="column">
             <md-input-container flex="100">
                 <label>Quantidade disponível</label>
-                <input md-maxlength="45" ng-model="vm.stock.disponivel">
+                <input md-maxlength="45" ng-model="vm.estoque.disponivel">
             </md-input-container>
         </div>
         <div layout layout-sm="column">
             <md-input-container flex="100">
                 <label>Total</label>
-                <input md-maxlength="45" ng-model="vm.stock.total">
+                <input md-maxlength="45" ng-model="vm.estoque.total">
             </md-input-container>
         </div>
     </md-card-content>

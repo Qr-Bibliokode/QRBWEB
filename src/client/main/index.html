@@ -12,72 +12,54 @@
     <link href="/app/vendor/md-grid-list/custom.style.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<div layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon md-font-icon="mdi mdi-checkbox-blank-circle md-18"></md-icon>
+            </md-button>
+            <h2><span>Qr-BiblioKode</span></h2>
+            <span flex=""></span>
+            <md-button href="/logout">Sair</md-button>
 
-<md-toolbar class="md-menu-toolbar">
-    <div layout="row">
-        <div>
-            <h2 class="md-toolbar-tools">Qr-BiblioKode</h2>
-            <md-menu-bar>
-                <md-menu>
-                    <button ng-click="$mdOpenMenu()">Usuário</button>
-                    <md-menu-content>
-                        <md-menu-item>
-                            <md-button href="#/contaUsuario/listagem">Contas</md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-                <md-menu>
-                    <button ng-click="$mdOpenMenu()">Biblioteca</button>
-                    <md-menu-content>
-                        <md-menu-item>
-                            <md-button href="#/autor/listagem">Autor</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/categoria/listagem">Categoria</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/feriado/listagem">Feriado</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/idioma/listagem">Idioma</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/livro/listagem">Livro</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/qrcode/listagem">Qr-Code</md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-                <md-menu>
-                    <button ng-click="$mdOpenMenu()">Serviços</button>
-                    <md-menu-content>
-                        <md-menu-item>
-                            <md-button href="#/comentario/listagem">Comentário</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/emprestimo/listagem">Empréstimo</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/reserva/listagem">Reserva</md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button href="#/stock/listagem">Estoque</md-button>
-                        </md-menu-item>
-
-                    </md-menu-content>
-                </md-menu>
-                <md-button href="/logout">Sair</md-button>
-            </md-menu-bar>
         </div>
-    </div>
-</md-toolbar>
-<div class="page-container">
-    <div class="page">
-        <div ui-view></div>
-    </div>
+    </md-toolbar>
+    <md-content>
+        <md-menu-bar>
+            <md-menu>
+                <button ng-click="$mdOpenMenu()">Usuário</button>
+                <md-menu-content>
+                    <md-menu-item type="checkbox" ui-sref="contaUsuarioList">Contas</md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <button ng-click="$mdOpenMenu()">Biblioteca</button>
+                <md-menu-content>
+                    <md-menu-item type="checkbox" ui-sref="autorList">Autor</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="categoriaList">Categoria</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="feriadoList">Feriado</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="idiomaList">Idioma</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="livroList">Livro</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="qrCodeList">Qr-Code</md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-menu>
+                <button ng-click="$mdOpenMenu()">Serviços</button>
+                <md-menu-content>
+                    <md-menu-item type="checkbox" ui-sref="comentarioList">Comentário</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="emprestimoList">Empréstimo</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="reservaList">Reserva</md-menu-item>
+                    <md-menu-item type="checkbox" ui-sref="estoqueList">Estoque</md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </md-menu-bar>
+        <div class="page-container">
+            <div class="page">
+                <div ui-view></div>
+            </div>
+        </div>
+    </md-content>
 </div>
-
 </body>
 <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
@@ -139,12 +121,12 @@
 <script type="text/javascript" src="/app/components/feriado/edit/feriado.edit.controller.js"></script>
 <script type="text/javascript" src="/app/components/feriado/feriado.route.js"></script>
 
-<script type="text/javascript" src="/app/components/stock/stock.factory.js"></script>
-<script type="text/javascript" src="/app/components/stock/stock.tabs.controller.js"></script>
-<script type="text/javascript" src="/app/components/stock/list/stock.list.controller.js"></script>
-<script type="text/javascript" src="/app/components/stock/create/stock.create.controller.js"></script>
-<script type="text/javascript" src="/app/components/stock/edit/stock.edit.controller.js"></script>
-<script type="text/javascript" src="/app/components/stock/stock.route.js"></script>
+<script type="text/javascript" src="/app/components/estoque/estoque.factory.js"></script>
+<script type="text/javascript" src="/app/components/estoque/estoque.tabs.controller.js"></script>
+<script type="text/javascript" src="/app/components/estoque/list/estoque.list.controller.js"></script>
+<script type="text/javascript" src="/app/components/estoque/create/estoque.create.controller.js"></script>
+<script type="text/javascript" src="/app/components/estoque/edit/estoque.edit.controller.js"></script>
+<script type="text/javascript" src="/app/components/estoque/estoque.route.js"></script>
 
 <script type="text/javascript" src="/app/components/estudante/estudante.factory.js"></script>
 <script type="text/javascript" src="/app/components/estudante/estudante.tabs.controller.js"></script>

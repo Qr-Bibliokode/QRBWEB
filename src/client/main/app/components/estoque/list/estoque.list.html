@@ -14,19 +14,19 @@
             </tr>
             </thead>
             <tbody md-auto-select>
-            <tr ng-repeat="stock in vm.getStock() | orderBy: query.order | filter: skip | limitTo: query.limit">
-                <td>{{stock.livro.titulo}}</td>
-                <td>{{stock.disponivel}}</td>
-                <td>{{stock.total}}</td>
+            <tr ng-repeat="estoque in vm.getEstoque() | orderBy: query.order | filter: skip | limitTo: query.limit">
+                <td>{{estoque.livro.titulo}}</td>
+                <td>{{estoque.disponivel}}</td>
+                <td>{{estoque.total}}</td>
                 <td>
                     <md-button class="md-icon-button md-sheet">
-                        <a class="btn btn-primary" btn-primary ui-sref="stockEdit(stock)">
+                        <a class="btn btn-primary" btn-primary ui-sref="estoqueEdit(estoque)">
                             <md-tooltip>Editar</md-tooltip>
                             <md-icon md-font-icon="mdi mdi-pencil md-18"></md-icon>
                         </a>
                     </md-button>
 
-                    <md-button ng-click="vm.remove(stock.id)" class="md-icon-button md-sheet">
+                    <md-button ng-click="vm.remove(estoque.id)" class="md-icon-button md-sheet">
                         <md-tooltip>Remover</md-tooltip>
                         <md-icon md-font-icon="mdi mdi-delete md-18"></md-icon>
                     </md-button>

@@ -3,14 +3,14 @@
 
     angular
         .module('qrbweb')
-        .controller('StockCreateController', ['StockFactory', 'LivroFactory', 'MessageFactory', StockCreateController]);
+        .controller('EstoqueCreateController', ['EstoqueFactory', 'LivroFactory', 'MessageFactory', EstoqueCreateController]);
 
     /** @ngInject */
-    function StockCreateController(StockFactory, LivroFactory, MessageFactory) {
+    function EstoqueCreateController(EstoqueFactory, LivroFactory, MessageFactory) {
         var vm = this;
 
         vm.create = function () {
-            StockFactory.create(vm.stock).then(function () {
+            EstoqueFactory.create(vm.estoque).then(function () {
                 MessageFactory.success('Inserido livro no estoque com sucesso.');
                 vm.clear();
             }, function (response) {
@@ -19,7 +19,7 @@
         };
 
         vm.clear = function () {
-            vm.stock = '';
+            vm.estoque = '';
         };
 
         vm.loadLivros = function () {

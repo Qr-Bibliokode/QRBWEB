@@ -3,18 +3,18 @@
 
     angular
         .module('qrbweb')
-        .factory('StockFactory', ['$http', '$q', StockFactory]);
+        .factory('EstoqueFactory', ['$http', '$q', EstoqueFactory]);
 
-    function StockFactory($http, $q) {
+    function EstoqueFactory($http, $q) {
 
-        var url = "http://localhost:3000/stock/";
-        var stock = [];
+        var url = "http://localhost:3000/estoque/";
+        var estoque = [];
 
         function list() {
             var d = $q.defer();
             $http.get(url).then(function (response, $q) {
                     d.resolve(response);
-                    stock = response.data;
+                    estoque = response.data;
                 },
                 function (data) {
                     d.reject(data);
@@ -34,9 +34,9 @@
             return d.promise;
         }
 
-        function create(stock) {
+        function create(estoque) {
             var d = $q.defer();
-            $http.post(url, stock).then(function (response, $q) {
+            $http.post(url, estoque).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -45,9 +45,9 @@
             return d.promise;
         }
 
-        function update(stock) {
+        function update(estoque) {
             var d = $q.defer();
-            $http.put(url + stock.id, stock).then(function (response, $q) {
+            $http.put(url + estoque.id, estoque).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -68,7 +68,7 @@
         }
 
         function get() {
-            return stock;
+            return estoque;
         }
 
         return {

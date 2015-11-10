@@ -8,7 +8,7 @@
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('qrcode', {
+            .state('qrCodeList', {
                 url: '/qrcode/listagem',
                 templateUrl: 'app/components/qrcode/list/qrcode.list.html',
                 controller: 'qrcodeListController',

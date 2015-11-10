@@ -2,19 +2,19 @@
     'use strict';
 
     angular.module('qrbweb')
-        .controller('StockTabsController', ['$scope', '$state', StockTabsController]);
+        .controller('EstoqueTabsController', ['$scope', '$state', EstoqueTabsController]);
 
-    function StockTabsController($scope, $state) {
+    function EstoqueTabsController($scope, $state) {
         var vm = this;
-        vm.title = 'Página Stock';
+        vm.title = 'Página Estoque';
 
         $scope.$watch('selectedTab', function (current) {
             switch (current) {
                 case 0:
-                    $state.transitionTo('stockList');
+                    $state.transitionTo('estoqueList');
                     break;
                 case 1:
-                    $state.transitionTo('stockCreate');
+                    $state.transitionTo('estoqueCreate');
                     break;
             }
         });

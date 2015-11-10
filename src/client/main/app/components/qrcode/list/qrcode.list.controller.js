@@ -8,6 +8,8 @@
     /** @ngInject */
     function qrcodeListController(LivroFactory, $scope) {
         var vm = this;
+	
+	vm.title = 'Página Qr-Code';
 
         vm.selected = [];
 

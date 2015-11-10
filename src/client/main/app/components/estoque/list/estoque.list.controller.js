@@ -3,10 +3,10 @@
 
     angular
         .module('qrbweb')
-        .controller('StockListController', ['StockFactory', '$scope', 'MessageFactory', StockListController]);
+        .controller('EstoqueListController', ['EstoqueFactory', '$scope', 'MessageFactory', EstoqueListController]);
 
     /** @ngInject */
-    function StockListController(StockFactory, $scope, MessageFactory) {
+    function EstoqueListController(EstoqueFactory, $scope, MessageFactory) {
         var vm = this;
 
         vm.selected = [];
@@ -19,18 +19,18 @@
         };
 
         vm.list = function () {
-            return StockFactory.list();
+            return EstoqueFactory.list();
         };
 
-        vm.getStock = function () {
-            return StockFactory.get();
+        vm.getEstoque = function () {
+            return EstoqueFactory.get();
         };
 
         vm.remove = function (id) {
-            StockFactory.remove(id).then(function () {
-                MessageFactory.success('Stock deletado com sucesso.');
+            EstoqueFactory.remove(id).then(function () {
+                MessageFactory.success('Estoque deletado com sucesso.');
             }, function () {
-                MessageFactory.error('Não é possível deletar este stock');
+                MessageFactory.error('Não é possível deletar este estoque');
             });
         };
 

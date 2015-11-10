@@ -34,9 +34,9 @@
             return d.promise;
         }
 
-        function create(stock) {
+        function create(estoque) {
             var d = $q.defer();
-            $http.post(url, stock).then(function (response, $q) {
+            $http.post(url, estoque).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

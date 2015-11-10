@@ -11,9 +11,9 @@ var swagger = new client({
 module.exports = [
     {
         method: 'GET',
-        path: '/stock/',
+        path: '/estoque/',
         handler: function (request, reply) {
-            swagger.stock.list({max: 10, offset: 0}, function (response) {
+            swagger.estoque.list({max: 10, offset: 0}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -22,9 +22,9 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/stock/{stockId}',
+        path: '/estoque/{estoqueId}',
         handler: function (request, reply) {
-            swagger.stock.getById({stockId: request.params.stockId}, function (response) {
+            swagger.estoque.getById({estoqueId: request.params.estoqueId}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -33,9 +33,9 @@ module.exports = [
     },
     {
         method: 'DELETE',
-        path: '/stock/{id}',
+        path: '/estoque/{id}',
         handler: function (request, reply) {
-            swagger.stock.delete({stockId: request.params.id}, function (response) {
+            swagger.estoque.delete({estoqueId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -44,9 +44,9 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/stock/',
+        path: '/estoque/',
         handler: function (request, reply) {
-            swagger.stock.create({stock: request.payload}, function (response) {
+            swagger.estoque.create({estoque: request.payload}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')
@@ -55,9 +55,9 @@ module.exports = [
     },
     {
         method: 'PUT',
-        path: '/stock/{id}',
+        path: '/estoque/{id}',
         handler: function (request, reply) {
-            swagger.stock.update({stock: request.payload, stockId: request.params.id}, function (response) {
+            swagger.estoque.update({estoque: request.payload, estoqueId: request.params.id}, function (response) {
                 reply(response.data).type('application/json')
             }, function (response) {
                 reply(response.data).code(500).type('application/json')

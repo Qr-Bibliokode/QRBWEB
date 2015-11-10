@@ -1,3 +1,5 @@
+<md-content class="md-padding">
+<h1 class="md-title">{{vm.title}}</h1>
 <md-card>
     <md-data-table-toolbar class="alternate" ng-show="vm.selected.length">
         <div>{{vm.selected.length}} {{vm.selected.length > 1 ? 'items selecionados' : 'item selecionado'}}</div>
@@ -29,3 +31,4 @@
                               md-total="{{vm.total}}"
                               md-trigger="onpagechange"></md-data-table-pagination>
 </md-card>
+</md-content>

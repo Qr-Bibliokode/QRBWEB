@@ -3,32 +3,32 @@
 
     angular
         .module('qrbweb')
-        .controller('StockEditController', ['StockFactory', '$stateParams', '$state', 'MessageFactory', 'LivroFactory', StockEditController]);
+        .controller('EstoqueEditController', ['EstoqueFactory', '$stateParams', '$state', 'MessageFactory', 'LivroFactory', EstoqueEditController]);
 
     /** @ngInject */
-    function StockEditController(StockFactory, $stateParams, $state, MessageFactory, LivroFactory) {
+    function EstoqueEditController(EstoqueFactory, $stateParams, $state, MessageFactory, LivroFactory) {
         var vm = this;
 
-        vm.stock = '';
+        vm.estoque = '';
 
         vm.update = function () {
-            StockFactory.update(vm.stock).then(function () {
+            EstoqueFactory.update(vm.estoque).then(function () {
                 MessageFactory.success('Estoque alterado com sucesso.');
-                $state.transitionTo('stockList');
+                $state.transitionTo('estoqueList');
                 vm.clear();
             }, function (response) {
                 MessageFactory.grailsError(response.data);
             });
         };
 
-        vm.loadStock = function () {
-            StockFactory.getById($stateParams.id).then(function (result) {
-                vm.stock = result.data;
+        vm.loadEstoque = function () {
+            EstoqueFactory.getById($stateParams.id).then(function (result) {
+                vm.estoque = result.data;
             });
         };
 
         vm.clear = function () {
-            vm.stock = '';
+            vm.estoque = '';
         };
 
         vm.loadLivros = function () {
@@ -39,7 +39,7 @@
             return LivroFactory.get();
         };
 
-        vm.loadStock();
+        vm.loadEstoque();
     }
 })
 ();
