@@ -23,7 +23,7 @@ Para iniciar o Front-end bastará rodar o comando ```gulp serve``` na pasta do p
 
 ## História
 
-QRB surge de um projeto da faculdade com o intuito de desafiar o nosso inteleto aprendendo novas tecnologias e ferramentas como AngularJS, Grails, Swagger e HapiJS dentre oturos.
+QRB surge de um projeto da faculdade com o intuito de desafiar o nosso intelecto aprendendo novas tecnologias e ferramentas como AngularJS, Grails, Swagger e HapiJS dentre outros.
 
 ## Agradecimentos
 
