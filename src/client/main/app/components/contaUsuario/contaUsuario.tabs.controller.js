@@ -5,6 +5,9 @@
         .controller('ContaUsuarioTabsController', ['$scope', '$state', ContaUsuarioTabsController]);
 
     function ContaUsuarioTabsController($scope, $state) {
+        var vm = this;
+
+        vm.title = 'Página Usuários';
 
         $scope.$watch('selectedTab', function (current) {
             switch (current) {
