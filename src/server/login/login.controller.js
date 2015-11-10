@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-
+//TODO: Implementar mensagens de erro e sucesso no login
     angular
         .module('qrbweb')
         .controller('LoginController', ['LoginFactory', '$window', LoginController]);
