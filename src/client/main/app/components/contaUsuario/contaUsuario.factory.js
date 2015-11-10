@@ -23,48 +23,19 @@
         }
 
         function remove(id) {
-            var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
-                    d.resolve(response);
-                    list();
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.delete(url + id);
         }
 
         function create(contaUsuario) {
-            var d = $q.defer();
-            $http.post(url, contaUsuario).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.post(url, contaUsuario);
         }
 
         function update(contaUsuario) {
-            var d = $q.defer();
-            $http.put(url + contaUsuario.id, contaUsuario).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.put(url + contaUsuario.id, contaUsuario);
         }
 
         function getById(id) {
-            var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.get(url + id);
         }
 
         function get() {
@@ -72,47 +43,19 @@
         }
 
         function verificarMultas(id) {
-            var d = $q.defer();
-            $http.get(url + "verificarMultas/" + id).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.get(url + "verificarMultas/" + id);
         }
 
         function pagarMulta(id) {
-            var d = $q.defer();
-            $http.get(url + "pagarMulta/" + id).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.get(url + "pagarMulta/" + id);
         }
 
         function bloquearContaUsuario(id) {
-            var d = $q.defer();
-            $http.get(url + "bloquearContaUsuario/" + id).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.get(url + "bloquearContaUsuario/" + id);
         }
 
         function habilitarContaUsuario(id) {
-            var d = $q.defer();
-            $http.get(url + "habilitarContaUsuario/" + id).then(function (response, $q) {
-                    d.resolve(response);
-                },
-                function (data) {
-                    d.reject(data);
-                });
-            return d.promise;
+            return $http.get(url + "habilitarContaUsuario/" + id);
         }
 
         return {

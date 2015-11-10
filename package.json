@@ -13,7 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "^9.0.1",
-    "inert": "^3.0.1"
+    "inert": "^3.0.1",
+    "hapi-auth-cookie": "^3.1.0"
   },
   "devDependencies": {
     "bower": "^1.4.1",
