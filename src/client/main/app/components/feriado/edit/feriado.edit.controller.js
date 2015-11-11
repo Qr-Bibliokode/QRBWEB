@@ -9,8 +9,6 @@
     function FeriadoEditController(FeriadoFactory, $stateParams, $state, MessageFactory, $filter) {
         var vm = this;
 
-        vm.feriado = '';
-
         vm.update = function () {
             vm.feriado.dataInicio = $filter('date')(vm.feriado.dataInicio, "yyyy-MM-dd HH:mm:ss.s");
             vm.feriado.dataFim = $filter('date')(vm.feriado.dataFim, "yyyy-MM-dd HH:mm:ss.s");
@@ -26,6 +24,9 @@
         vm.loadFeriado = function () {
             FeriadoFactory.getById($stateParams.id).then(function (result) {
                 vm.feriado = result.data;
+                //Tentativa de arrumar o problema...
+                //vm.feriado.dataInicio = $filter('date')(vm.feriado.dataInicio, "EEE MMM dd yyyy HH:mm:ss Z");
+                //vm.feriado.dataFim = $filter('date')(vm.feriado.dataFim, "EEE MMM dd yyyy HH:mm:ss Z");
             });
         };
 
