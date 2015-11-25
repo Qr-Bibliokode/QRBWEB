@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('ComentarioFactory', ['$http', '$q', ComentarioFactory]);
+        .factory('ComentarioFactory', ['$http', '$q', 'ResourcesFactory', ComentarioFactory]);
 
-    function ComentarioFactory($http, $q) {
+    function ComentarioFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/comentarios/";
         var comentarios = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.COMENTARIO_API).then(function (response, $q) {
                     d.resolve(response);
                     comentarios = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.COMENTARIO_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(comentario) {
             var d = $q.defer();
-            $http.post(url, comentario).then(function (response, $q) {
+            $http.post(ResourcesFactory.COMENTARIO_API, comentario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(comentario) {
             var d = $q.defer();
-            $http.put(url + comentario.id, comentario).then(function (response, $q) {
+            $http.put(ResourcesFactory.COMENTARIO_API + comentario.id, comentario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.COMENTARIO_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

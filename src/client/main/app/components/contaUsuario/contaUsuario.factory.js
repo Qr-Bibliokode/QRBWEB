@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('ContaUsuarioFactory', ['$http', '$q', ContaUsuarioFactory]);
+        .factory('ContaUsuarioFactory', ['$http', '$q', 'ResourcesFactory', ContaUsuarioFactory]);
 
-    function ContaUsuarioFactory($http, $q) {
+    function ContaUsuarioFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/contaUsuarios/";
         var contaUsuarios = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.CONTAUSUARIO_API).then(function (response, $q) {
                     d.resolve(response);
                     contaUsuarios = response.data;
                 },
@@ -23,19 +22,19 @@
         }
 
         function remove(id) {
-            return $http.delete(url + id);
+            return $http.delete(ResourcesFactory.CONTAUSUARIO_API + id);
         }
 
         function create(contaUsuario) {
-            return $http.post(url, contaUsuario);
+            return $http.post(ResourcesFactory.CONTAUSUARIO_API, contaUsuario);
         }
 
         function update(contaUsuario) {
-            return $http.put(url + contaUsuario.id, contaUsuario);
+            return $http.put(ResourcesFactory.CONTAUSUARIO_API + contaUsuario.id, contaUsuario);
         }
 
         function getById(id) {
-            return $http.get(url + id);
+            return $http.get(ResourcesFactory.CONTAUSUARIO_API + id);
         }
 
         function get() {
@@ -43,19 +42,19 @@
         }
 
         function verificarMultas(id) {
-            return $http.get(url + "verificarMultas/" + id);
+            return $http.get(ResourcesFactory.CONTAUSUARIO_API + "verificarMultas/" + id);
         }
 
         function pagarMulta(id) {
-            return $http.get(url + "pagarMulta/" + id);
+            return $http.get(ResourcesFactory.CONTAUSUARIO_API + "pagarMulta/" + id);
         }
 
         function bloquearContaUsuario(id) {
-            return $http.get(url + "bloquearContaUsuario/" + id);
+            return $http.get(ResourcesFactory.CONTAUSUARIO_API + "bloquearContaUsuario/" + id);
         }
 
         function habilitarContaUsuario(id) {
-            return $http.get(url + "habilitarContaUsuario/" + id);
+            return $http.get(ResourcesFactory.CONTAUSUARIO_API + "habilitarContaUsuario/" + id);
         }
 
         return {

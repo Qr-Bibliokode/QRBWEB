@@ -1,6 +1,6 @@
 var client = require('swagger-client');
 
-var urlSwaggerJson = 'http://localhost:8080/swagger/swagger.json';
+var urlSwaggerJson = 'http://localhost:3000/swagger/';
 
 var swagger = new client({
     url: urlSwaggerJson,

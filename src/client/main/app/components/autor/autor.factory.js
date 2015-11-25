@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('AutorFactory', ['$http', '$q', AutorFactory]);
+        .factory('AutorFactory', ['$http', '$q', 'ResourcesFactory', AutorFactory]);
 
-    function AutorFactory($http, $q) {
+    function AutorFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/autores/";
         var autores = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.AUTOR_API).then(function (response, $q) {
                     d.resolve(response);
                     autores = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.AUTOR_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(autor) {
             var d = $q.defer();
-            $http.post(url, autor).then(function (response, $q) {
+            $http.post(ResourcesFactory.AUTOR_API, autor).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(autor) {
             var d = $q.defer();
-            $http.put(url + autor.id, autor).then(function (response, $q) {
+            $http.put(ResourcesFactory.AUTOR_API + autor.id, autor).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.AUTOR_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

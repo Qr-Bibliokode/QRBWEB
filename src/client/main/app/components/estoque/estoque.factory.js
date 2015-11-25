@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('EstoqueFactory', ['$http', '$q', EstoqueFactory]);
+        .factory('EstoqueFactory', ['$http', '$q', 'ResourcesFactory', EstoqueFactory]);
 
-    function EstoqueFactory($http, $q) {
+    function EstoqueFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/estoque/";
         var estoque = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.ESTOQUE_API).then(function (response, $q) {
                     d.resolve(response);
                     estoque = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.ESTOQUE_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(estoque) {
             var d = $q.defer();
-            $http.post(url, estoque).then(function (response, $q) {
+            $http.post(ResourcesFactory.ESTOQUE_API, estoque).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(estoque) {
             var d = $q.defer();
-            $http.put(url + estoque.id, estoque).then(function (response, $q) {
+            $http.put(ResourcesFactory.ESTOQUE_API + estoque.id, estoque).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.ESTOQUE_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

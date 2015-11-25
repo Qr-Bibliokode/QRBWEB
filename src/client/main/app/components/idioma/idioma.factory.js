@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('IdiomaFactory', ['$http', '$q', IdiomaFactory]);
+        .factory('IdiomaFactory', ['$http', '$q', 'ResourcesFactory', IdiomaFactory]);
 
-    function IdiomaFactory($http, $q) {
+    function IdiomaFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/idiomas/";
         var idiomas = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.IDIOMA_API).then(function (response, $q) {
                     d.resolve(response);
                     idiomas = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.IDIOMA_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(idioma) {
             var d = $q.defer();
-            $http.post(url, idioma).then(function (response, $q) {
+            $http.post(ResourcesFactory.IDIOMA_API, idioma).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(idioma) {
             var d = $q.defer();
-            $http.put(url + idioma.id, idioma).then(function (response, $q) {
+            $http.put(ResourcesFactory.IDIOMA_API + idioma.id, idioma).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.IDIOMA_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

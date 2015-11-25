@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('EstudanteFactory', ['$http', '$q', EstudanteFactory]);
+        .factory('EstudanteFactory', ['$http', '$q', 'ResourcesFactory', EstudanteFactory]);
 
-    function EstudanteFactory($http, $q) {
+    function EstudanteFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/estudantes/";
         var estudantes = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.ESTUDANTE_API).then(function (response, $q) {
                     d.resolve(response);
                     estudantes = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.ESTUDANTE_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(estudante) {
             var d = $q.defer();
-            $http.post(url, estudante).then(function (response, $q) {
+            $http.post(ResourcesFactory.ESTUDANTE_API, estudante).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(estudante) {
             var d = $q.defer();
-            $http.put(url + estudante.id, estudante).then(function (response, $q) {
+            $http.put(ResourcesFactory.ESTUDANTE_API + estudante.id, estudante).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.ESTUDANTE_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

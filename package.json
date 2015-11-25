@@ -15,7 +15,8 @@
     "hapi": "^9.0.1",
     "swagger-client": "^2.1.6",
     "inert": "^3.0.1",
-    "hapi-auth-cookie": "^3.1.0"
+    "hapi-auth-cookie": "^3.1.0",
+    "restler": "^3.4.0"
   },
   "devDependencies": {
     "bower": "^1.4.1",

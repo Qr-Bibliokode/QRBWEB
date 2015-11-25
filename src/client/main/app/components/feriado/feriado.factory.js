@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('FeriadoFactory', ['$http', '$q', FeriadoFactory]);
+        .factory('FeriadoFactory', ['$http', '$q', 'ResourcesFactory', FeriadoFactory]);
 
-    function FeriadoFactory($http, $q) {
+    function FeriadoFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/feriados/";
         var feriados = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.FERIADO_API).then(function (response, $q) {
                     d.resolve(response);
                     feriados = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.FERIADO_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(feriado) {
             var d = $q.defer();
-            $http.post(url, feriado).then(function (response, $q) {
+            $http.post(ResourcesFactory.FERIADO_API, feriado).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(feriado) {
             var d = $q.defer();
-            $http.put(url + feriado.id, feriado).then(function (response, $q) {
+            $http.put(ResourcesFactory.FERIADO_API + feriado.id, feriado).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.FERIADO_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

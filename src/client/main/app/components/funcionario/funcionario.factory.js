@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('FuncionarioFactory', ['$http', '$q', FuncionarioFactory]);
+        .factory('FuncionarioFactory', ['$http', '$q', 'ResourcesFactory', FuncionarioFactory]);
 
-    function FuncionarioFactory($http, $q) {
+    function FuncionarioFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/funcionarios/";
         var funcionarios = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.FUNCIONARIO_API).then(function (response, $q) {
                     d.resolve(response);
                     funcionarios = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.FUNCIONARIO_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function create(funcionario) {
             var d = $q.defer();
-            $http.post(url, funcionario).then(function (response, $q) {
+            $http.post(ResourcesFactory.FUNCIONARIO_API, funcionario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function update(funcionario) {
             var d = $q.defer();
-            $http.put(url + funcionario.id, funcionario).then(function (response, $q) {
+            $http.put(ResourcesFactory.FUNCIONARIO_API + funcionario.id, funcionario).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.FUNCIONARIO_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

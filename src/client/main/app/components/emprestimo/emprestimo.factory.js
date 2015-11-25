@@ -3,16 +3,15 @@
 
     angular
         .module('qrbweb')
-        .factory('EmprestimoFactory', ['$http', '$q', EmprestimoFactory]);
+        .factory('EmprestimoFactory', ['$http', '$q', 'ResourcesFactory', EmprestimoFactory]);
 
-    function EmprestimoFactory($http, $q) {
+    function EmprestimoFactory($http, $q, ResourcesFactory) {
 
-        var url = "http://localhost:3000/emprestimos/";
         var emprestimos = [];
 
         function list() {
             var d = $q.defer();
-            $http.get(url).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API).then(function (response, $q) {
                     d.resolve(response);
                     emprestimos = response.data;
                 },
@@ -24,7 +23,7 @@
 
         function remove(id) {
             var d = $q.defer();
-            $http.delete(url + id).then(function (response, $q) {
+            $http.delete(ResourcesFactory.EMPRESTIMO_API + id).then(function (response, $q) {
                     d.resolve(response);
                     list();
                 },
@@ -36,7 +35,7 @@
 
         function emprestar(emprestimo) {
             var d = $q.defer();
-            $http.post(url + "emprestar/", emprestimo).then(function (response, $q) {
+            $http.post(ResourcesFactory.EMPRESTIMO_API + "emprestar/", emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -47,7 +46,7 @@
 
         function devolver(id) {
             var d = $q.defer();
-            $http.get(url + "devolver/" + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API + "devolver/" + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -58,7 +57,7 @@
 
         function update(emprestimo) {
             var d = $q.defer();
-            $http.put(url + emprestimo.id, emprestimo).then(function (response, $q) {
+            $http.put(ResourcesFactory.EMPRESTIMO_API + emprestimo.id, emprestimo).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -69,7 +68,7 @@
 
         function renovar(emprestimo) {
             var d = $q.defer();
-            $http.get(url + "renovar/" + emprestimo.id).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API + "renovar/" + emprestimo.id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -80,7 +79,7 @@
 
         function liberar(id) {
             var d = $q.defer();
-            $http.get(url + "liberar/" + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API + "liberar/" + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -91,7 +90,7 @@
 
         function obtenhaHistoricoEmprestimosPorLivro(id) {
             var d = $q.defer();
-            $http.get(url + "obtenhaHistoricoEmprestimosPorLivro/" + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API + "obtenhaHistoricoEmprestimosPorLivro/" + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {
@@ -102,7 +101,7 @@
 
         function getById(id) {
             var d = $q.defer();
-            $http.get(url + id).then(function (response, $q) {
+            $http.get(ResourcesFactory.EMPRESTIMO_API + id).then(function (response, $q) {
                     d.resolve(response);
                 },
                 function (data) {

@@ -3,13 +3,13 @@ var autor = require('./components/autor.routes');
 var categoria = require('./components/categoria.routes');
 var comentario = require('./components/comentario.routes');
 var contaUsuario = require('./components/contaUsuario.routes');
-var funcionario = require('./components/funcionario.routes');
 var emprestimo = require('./components/emprestimo.routes');
+var estoque = require('./components/estoque.routes');
 var estudante = require('./components/estudante.routes');
 var feriado = require('./components/feriado.routes');
+var funcionario = require('./components/funcionario.routes');
 var idioma = require('./components/idioma.routes');
 var livro = require('./components/livro.routes');
-var estoque = require('./components/estoque.routes');
 var reserva = require('./components/reserva.routes');
 
 // Login
@@ -20,13 +20,13 @@ module.exports = [].concat(
     categoria,
     comentario,
     contaUsuario,
-    funcionario,
     emprestimo,
     estudante,
+    estoque,
     feriado,
+    funcionario,
     idioma,
     livro,
-    estoque,
     reserva,
     login
 );
