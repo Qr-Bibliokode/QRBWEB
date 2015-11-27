@@ -12,11 +12,13 @@
   "author": "Ferran Gonzalez Alonso",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^9.0.1",
-    "swagger-client": "^2.1.6",
-    "inert": "^3.0.1",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "hapi": "^9.3.1",
     "hapi-auth-cookie": "^3.1.0",
-    "restler": "^3.4.0"
+    "inert": "^3.2.0",
+    "restler": "^3.4.0",
+    "swagger-client": "^2.1.7"
   },
   "devDependencies": {
     "bower": "^1.4.1",
